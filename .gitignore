@@ -11,3 +11,8 @@
 #VS Generated Files#
 ####################
 */.vs
+
+####################
+#Custom Folder     #
+####################
+TestBuildedGame/
