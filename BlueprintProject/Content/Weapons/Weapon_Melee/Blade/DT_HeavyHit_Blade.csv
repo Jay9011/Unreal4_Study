@@ -3,5 +3,5 @@
 2,5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Midium.Blade_Damage_Front_Midium',1,FALSE,"(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 3,10,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_UpperAndDown_Hit_Inplace.Blade_Damage_UpperAndDown_Hit_Inplace',1.25,FALSE,"(X=100,Y=300)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 4,10,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_UpperAndDown_Hit_Inplace.Blade_Damage_UpperAndDown_Hit_Inplace',1.25,FALSE,"(X=100,Y=500)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-5,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown_Inplace.Blade_Damage_Front_Big_KnockDown_Inplace',1,FALSE,"(X=100,Y=700)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-6,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown_Inplace.Blade_Damage_Front_Big_KnockDown_Inplace',1,FALSE,"(X=0,Y=1000)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+5,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown_Inplace.Blade_Damage_Front_Big_KnockDown_Inplace',1,FALSE,"(X=100,Y=1500)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+6,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown_Inplace.Blade_Damage_Front_Big_KnockDown_Inplace',1,FALSE,"(X=100,Y=2000)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
