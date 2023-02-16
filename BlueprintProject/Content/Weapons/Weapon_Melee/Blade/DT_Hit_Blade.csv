@@ -3,4 +3,4 @@
 2,5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Left_Small.Blade_Damage_Left_Small',1,FALSE,"(X=300,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 3,10,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Midium.Blade_Damage_Front_Midium',1,FALSE,"(X=700,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 4,10,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_Stand.Blade_Damage_Front_Big_Stand',1,FALSE,"(X=1000,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-5,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown.Blade_Damage_Front_Big_KnockDown',1,FALSE,"(X=1500,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+5,20,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown.Blade_Damage_Front_Big_KnockDown',1,FALSE,"(X=500,Y=500)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
