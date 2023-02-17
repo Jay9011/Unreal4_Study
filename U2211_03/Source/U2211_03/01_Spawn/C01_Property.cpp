@@ -11,7 +11,7 @@ AC01_Property::AC01_Property()
 void AC01_Property::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	FString str;
 	str.Append(GetActorLabel());
 
