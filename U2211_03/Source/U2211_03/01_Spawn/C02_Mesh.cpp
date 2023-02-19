@@ -8,8 +8,8 @@
 
 AC02_Mesh::AC02_Mesh()
 {
-	// Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
-	// RootComponent = Mesh;
+	//Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
+	//RootComponent = Mesh;
 
 	CHelpers::CreateComponent<UStaticMeshComponent>(this, &Mesh, "Mesh");
 
@@ -18,7 +18,7 @@ AC02_Mesh::AC02_Mesh()
 	//	Mesh->SetStaticMesh(mesh.Object);
 
 	UStaticMesh* mesh = nullptr;
-	CHelpers::GetAsset<UStaticMesh>(&mesh, "StaticMesh'/Game/Meshes/Cube.Cube'"		);
+	CHelpers::GetAsset<UStaticMesh>(&mesh, "StaticMesh'/Game/Meshes/Cube.Cube'");
 	Mesh->SetStaticMesh(mesh);
 
 }
