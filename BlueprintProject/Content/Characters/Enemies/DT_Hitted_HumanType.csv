@@ -1,2 +1,10 @@
-,WeaponType,DamageType,StateType,Montage,PlayRatio
-,Blade,LightAttack,Idle,,
+,HitType,Montage,PlayRatio
+SmallFront,SmallFront,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Small.Blade_Damage_Front_Small',1
+SmallLeft,SmallLeft,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Left_Small.Blade_Damage_Left_Small',1
+SmallRight,SmallRight,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Right_Small.Blade_Damage_Right_Small',1
+MidiumFront,MidiumFront,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Midium.Blade_Damage_Front_Midium',1
+MidiumDown,MidiumDown,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Down_Midium.Blade_Damage_Down_Midium',1
+BigFront,BigFront,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big.Blade_Damage_Front_Big',1
+UpperNormal,UpperNormal,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_Front_Big_KnockDown_Inplace.Blade_Damage_Front_Big_KnockDown_Inplace',1
+UpperAndDown,UpperAndDown,AnimMontage'/Game/Resources/Anim_Montages/Blade/Damaged/Blade_Damage_UpperAndDown_Hit_Inplace.Blade_Damage_UpperAndDown_Hit_Inplace',1
+FrontDownSmall,FrontDownSmall,AnimMontage'/Game/Resources/Anim_Montages/Common/KnockDown_Front_Samll.KnockDown_Front_Samll',1
