@@ -1,7 +1,7 @@
-,Montage,PlayRatio,CanMove,FixedCamera
-1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_1.Blade_HeavyCombo_1',1.25,FALSE,TRUE
-2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_2.Blade_HeavyCombo_2',1.25,FALSE,TRUE
-3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_3.Blade_HeavyCombo_3',1.25,FALSE,TRUE
-4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_4.Blade_HeavyCombo_4',1.25,FALSE,TRUE
-5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_5.Blade_HeavyCombo_5',1,FALSE,TRUE
-6,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_6.Blade_HeavyCombo_6',1,FALSE,TRUE
+,Montage,PlayRatio,CanMove,FixedCamera,Launch
+1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_1.Blade_HeavyCombo_1',1.25,FALSE,TRUE,"(X=0,Y=0)"
+2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_2.Blade_HeavyCombo_2',1.25,FALSE,TRUE,"(X=0,Y=0)"
+3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_3.Blade_HeavyCombo_3',1.25,FALSE,TRUE,"(X=0,Y=0)"
+4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_4.Blade_HeavyCombo_4',1.25,FALSE,TRUE,"(X=0,Y=0)"
+5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_5.Blade_HeavyCombo_5',1,FALSE,TRUE,"(X=0,Y=0)"
+6,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_HeavyCombo_6.Blade_HeavyCombo_6',1,FALSE,TRUE,"(X=0,Y=0)"

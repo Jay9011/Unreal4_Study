@@ -1,6 +1,6 @@
-,Montage,PlayRatio,CanMove,FixedCamera
-1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_1.AirCombo_Blade_1',1.25,FALSE,FALSE
-2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_2.AirCombo_Blade_2',1.25,FALSE,FALSE
-3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_3.AirCombo_Blade_3',1.25,FALSE,FALSE
-4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_4.AirCombo_Blade_4',1.25,FALSE,FALSE
-5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_5.AirCombo_Blade_5',1.25,FALSE,FALSE
+,Montage,PlayRatio,CanMove,FixedCamera,Launch
+1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_1.AirCombo_Blade_1',1.25,FALSE,FALSE,"(X=0,Y=0)"
+2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_2.AirCombo_Blade_2',1.25,FALSE,FALSE,"(X=0,Y=0)"
+3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_3.AirCombo_Blade_3',1.25,FALSE,FALSE,"(X=0,Y=0)"
+4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_4.AirCombo_Blade_4',1.25,FALSE,FALSE,"(X=0,Y=0)"
+5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/AirCombo/AirCombo_Blade_5.AirCombo_Blade_5',1.25,FALSE,FALSE,"(X=0,Y=0)"

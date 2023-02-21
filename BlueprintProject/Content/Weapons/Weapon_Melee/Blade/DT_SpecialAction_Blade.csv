@@ -1,2 +1,2 @@
-,Montage,PlayRatio,CanMove,FixedCamera
-DownAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/JumpDownAttack_Inplace.JumpDownAttack_Inplace',1,FALSE,FALSE
+,Montage,PlayRatio,CanMove,FixedCamera,Launch
+DownAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/JumpDownAttack_Inplace.JumpDownAttack_Inplace',1,FALSE,FALSE,"(X=0,Y=0)"
