@@ -12,6 +12,7 @@ public:
 
 		if(!!InParent)
 		{
+			(*OutComponent)->SetupAttachment(InParent);
 
 			return;
 		}
