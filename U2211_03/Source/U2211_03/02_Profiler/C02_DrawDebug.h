@@ -35,5 +35,4 @@ private:
 
 private:
 	FVector Location[5];
-
 };

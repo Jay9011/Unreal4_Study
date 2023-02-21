@@ -14,7 +14,6 @@ ACPlayer::ACPlayer()
 	CHelpers::CreateComponent<UCameraComponent>(this, &Camera, "Camera", SpringArm);
 
 
-	//SkeletalMesh'/Game/Character/Mesh/SK_Mannequin.SK_Mannequin'
 	USkeletalMesh* mesh;
 	CHelpers::GetAsset<USkeletalMesh>(&mesh, "SkeletalMesh'/Game/Character/Mesh/SK_Mannequin.SK_Mannequin'");
 	GetMesh()->SetSkeletalMesh(mesh);
@@ -30,7 +29,6 @@ ACPlayer::ACPlayer()
 	SpringArm->TargetArmLength = 200;
 	SpringArm->bUsePawnControlRotation = true;
 	SpringArm->bEnableCameraLag = true;
-	
 }
 
 void ACPlayer::BeginPlay()

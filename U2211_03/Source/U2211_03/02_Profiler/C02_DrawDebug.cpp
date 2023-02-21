@@ -24,7 +24,6 @@ void AC02_DrawDebug::BeginPlay()
 	Super::BeginPlay();
 
 	PointLight->SetVisibility(false);
-
 }
 
 void AC02_DrawDebug::Tick(float DeltaTime)
