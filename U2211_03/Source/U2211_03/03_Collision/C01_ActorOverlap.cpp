@@ -22,14 +22,13 @@ void AC01_ActorOverlap::BeginPlay()
 	OnActorBeginOverlap.AddDynamic(this, &AC01_ActorOverlap::BeginOverlap);
 	OnActorEndOverlap.AddDynamic(this, &AC01_ActorOverlap::EndOverlap);
 
-
 }
 
 void AC01_ActorOverlap::BeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
 	FString str = FString::Printf(L"Begin - Overlapped : %s, Other : %s", 
-									*OverlappedActor->GetName(),
-	                              *OtherActor->GetName());
+								  *OverlappedActor->GetName(),
+								  *OtherActor->GetName());
 
 	CLog::Print(str, -1, 10, FColor::Red);
 
@@ -38,8 +37,8 @@ void AC01_ActorOverlap::BeginOverlap(AActor* OverlappedActor, AActor* OtherActor
 void AC01_ActorOverlap::EndOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
 	FString str = FString::Printf(L"End - Overlapped : %s, Other : %s",
-		*OverlappedActor->GetName(),
-		*OtherActor->GetName());
+								  *OverlappedActor->GetName(),
+								  *OtherActor->GetName());
 
 	CLog::Print(str, -1, 10, FColor::Green);
 

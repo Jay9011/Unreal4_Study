@@ -1,7 +1,7 @@
 #pragma once
-
 #include "CoreMinimal.h"
 
+// 간단한 Return 전용 매크로 함수들
 #define CheckTrue(x) { if(x == true) return; }
 #define CheckTrueResult(x, y) { if(x == true) return y; }
 

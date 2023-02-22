@@ -22,10 +22,10 @@ ACPlayer::ACPlayer()
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -90));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 
+
 	TSubclassOf<UCAnimInstance> animInstance;
 	CHelpers::GetClass<UCAnimInstance>(&animInstance, "AnimBlueprint'/Game/ABP_Character.ABP_Character_C'");
 	GetMesh()->SetAnimClass(animInstance);
-
 
 
 	bUseControllerRotationYaw = false;
@@ -36,6 +36,7 @@ ACPlayer::ACPlayer()
 	SpringArm->TargetArmLength = 200;
 	SpringArm->bUsePawnControlRotation = true;
 	SpringArm->bEnableCameraLag = true;
+
 }
 
 void ACPlayer::BeginPlay()
@@ -66,8 +67,8 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ACPlayer::OnMoveForward(float InAxisValue)
 {
-	FRotator rotator = FRotator(0, GetControlRotation().Yaw, 0);
-	FVector direction = FQuat(rotator).GetForwardVector().GetSafeNormal2D();
+	const FRotator rotator = FRotator(0, GetControlRotation().Yaw, 0);
+	const FVector direction = FQuat(rotator).GetForwardVector().GetSafeNormal2D();
 
 	AddMovementInput(direction, InAxisValue);
 
@@ -75,8 +76,8 @@ void ACPlayer::OnMoveForward(float InAxisValue)
 
 void ACPlayer::OnMoveRight(float InAxisValue)
 {
-	FRotator rotator = FRotator(0, GetControlRotation().Yaw, 0);
-	FVector direction = FQuat(rotator).GetRightVector().GetSafeNormal2D();
+	const FRotator rotator = FRotator(0, GetControlRotation().Yaw, 0);
+	const FVector direction = FQuat(rotator).GetRightVector().GetSafeNormal2D();
 
 	AddMovementInput(direction, InAxisValue);
 

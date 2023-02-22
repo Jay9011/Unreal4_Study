@@ -10,6 +10,7 @@ class U2211_03_API UCAnimInstance : public UAnimInstance
 	GENERATED_BODY()
 
 protected:
+	// Preview 를 보기 위해서 EditAnywhere 를 사용해야 합니다.
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Animation")
 		float Speed;
 
@@ -19,5 +20,4 @@ public:
 
 private:
 	class ACharacter* OwnerCharacter;
-
 };
