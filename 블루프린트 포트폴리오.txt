@@ -2,7 +2,12 @@
 
 [진행 중]
 2. 전투
- 4) 공중 콤보 진행중... (블루 프린트 재설계 -히트데이터 전달과 Launch-, 모션 변경)
+ 4) 공중 콤보 진행중...
+	- Damaged 에 HitData 전달 시 각각의 Damage Type 에 따라 전달하기
+	- DoAction(Player)과 HitData(Enemy)에 있는 Launch를 각자 따로따로 줄 수 있도록 하기
+		- Interface 혹은 Base Character에 공통으로 사용할 수 있도록...?
+	- Falling 도중 우클릭시 적에게 접근 공격
+	
 
 [예정]
 1. 이동
