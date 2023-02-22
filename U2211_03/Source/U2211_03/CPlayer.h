@@ -16,8 +16,6 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* Camera;
 
-
-
 public:
 	ACPlayer();
 
@@ -28,4 +26,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	void OnMoveForward(float InAxisValue);
+	void OnMoveRight(float InAxisValue);
+	void OnHorizontalLook(float InAxisValue);
+	void OnVerticalLook(float InAxisValue);
+
+private:
+	void OnRun();
+	void OffRun();
+
 };
