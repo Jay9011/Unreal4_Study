@@ -1,4 +1,5 @@
 #include "03_Collision/C02_ComponentOverlap.h"
+
 #include "Global.h"
 #include "Components/BoxComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -19,7 +20,7 @@ void AC02_ComponentOverlap::BeginPlay()
 	Super::BeginPlay();
 
 	Box->OnComponentBeginOverlap.AddDynamic(this, &AC02_ComponentOverlap::OnComponentBeginOverlap);
-	Box->OnComponentEndOverlap.AddDynamic(this, &AC02_ComponentOverlap::OnComponentEndOvelap);
+	Box->OnComponentEndOverlap.AddDynamic(this, &AC02_ComponentOverlap::OnComponentEndOverlap);
 
 }
 
@@ -43,7 +44,7 @@ void AC02_ComponentOverlap::OnComponentBeginOverlap(UPrimitiveComponent* Overlap
 
 }
 
-void AC02_ComponentOverlap::OnComponentEndOvelap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+void AC02_ComponentOverlap::OnComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	FString str;

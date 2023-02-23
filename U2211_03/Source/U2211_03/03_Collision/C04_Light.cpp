@@ -13,6 +13,7 @@ AC04_Light::AC04_Light()
 	CHelpers::CreateComponent<UPointLightComponent>(this, &PointLight2, "PointLight2", Root);
 
 	CreateTextRender()
+	
 
 	PointLight->SetRelativeLocation(FVector(0, -50, 0));
 	PointLight->LightColor = FColor::Red;
@@ -32,7 +33,7 @@ void AC04_Light::BeginPlay()
 
 	OffLight();
 
-	for(AActor* actor : GetWorld()->GetCurrentLevel()->Actors)
+	for(const AActor* actor : GetWorld()->GetCurrentLevel()->Actors)
 	{
 		if(!!actor && actor->IsA<AC04_Trigger>())
 		{

@@ -1,5 +1,5 @@
-
 #include "03_Collision/C04_Trigger.h"
+
 #include "Global.h"
 #include "Components/BoxComponent.h"
 #include "Components/TextRenderComponent.h"
@@ -20,7 +20,7 @@ void AC04_Trigger::BeginPlay()
 	Super::BeginPlay();
 
 	Box->OnComponentBeginOverlap.AddDynamic(this, &AC04_Trigger::OnComponentBeginOverlap);
-	Box->OnComponentEndOverlap.AddDynamic(this, &AC04_Trigger::OnComponentEndOvelap);
+	Box->OnComponentEndOverlap.AddDynamic(this, &AC04_Trigger::OnComponentEndOverlap);
 }
 
 
@@ -31,7 +31,7 @@ void AC04_Trigger::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedCompon
 		OnBoxLightBeginOverlap.Execute();
 }
 
-void AC04_Trigger::OnComponentEndOvelap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+void AC04_Trigger::OnComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	if (OnBoxLightEndOverlap.IsBound())
