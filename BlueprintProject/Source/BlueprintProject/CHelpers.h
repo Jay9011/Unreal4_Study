@@ -11,6 +11,6 @@ class BLUEPRINTPROJECT_API UCHelpers : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable, Category="Debug")
-		static void DebugPrintString(const FString& InString, int InKey = -1, float InDuration = 3, FColor InColor = FColor(0, 255, 255), bool InNewerOnTop = true);
+		static void DebugPrintString(const FString& InString, int InKey = -1, float InDuration = 3, FLinearColor InColor = FLinearColor(0, 1, 1, 1), bool InNewerOnTop = true);
 
 };
