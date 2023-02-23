@@ -1,6 +1,6 @@
 ,Montage,PlayRatio,CanMove,FixedCamera,Launch
-1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_1.Blade_LightCombo_1',1.25,FALSE,TRUE,"(X=0,Y=0)"
-2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_2.Blade_LightCombo_2',1.25,FALSE,TRUE,"(X=0,Y=0)"
-3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_3.Blade_LightCombo_3',1.25,FALSE,TRUE,"(X=0,Y=0)"
-4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_4.Blade_LightCombo_4',1.25,FALSE,TRUE,"(X=0,Y=0)"
-5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_5.Blade_LightCombo_5',1,FALSE,TRUE,"(X=0,Y=0)"
+1,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_1.Blade_LightCombo_1',1.25,FALSE,TRUE,"(X=100,Y=0)"
+2,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_2.Blade_LightCombo_2',1.25,FALSE,TRUE,"(X=100,Y=0)"
+3,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_3.Blade_LightCombo_3',1.25,FALSE,TRUE,"(X=100,Y=0)"
+4,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_4.Blade_LightCombo_4',1.25,FALSE,TRUE,"(X=100,Y=0)"
+5,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Blade_LightCombo_5.Blade_LightCombo_5',1,FALSE,TRUE,"(X=100,Y=0)"
