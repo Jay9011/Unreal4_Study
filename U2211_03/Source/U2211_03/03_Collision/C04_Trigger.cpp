@@ -29,6 +29,15 @@ void AC04_Trigger::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedCompon
 {
 	if (OnBoxLightBeginOverlap.IsBound())
 		OnBoxLightBeginOverlap.Execute();
+
+	if (OnBoxLightColorOverlap.IsBound())
+	{
+		FLinearColor color = FLinearColor::MakeRandomColor();
+		FString str = OnBoxLightColorOverlap.Execute(color);
+
+		CLog::Print(str);
+
+	}
 }
 
 void AC04_Trigger::OnComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,

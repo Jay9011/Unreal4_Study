@@ -2,14 +2,14 @@
 #include "CoreMinimal.h"
 
 // 간단한 Return 전용 매크로 함수들
-#define CheckTrue(x) { if(x == true) return; }
-#define CheckTrueResult(x, y) { if(x == true) return y; }
+#define CheckTrue(x) { if(x == true) return; };
+#define CheckTrueResult(x, y) { if(x == true) return y; };
 
-#define CheckFalse(x) { if (x == false) return; }
-#define CheckFalseResult(x, y) { if(x == false) return y;}
+#define CheckFalse(x) { if (x == false) return; };
+#define CheckFalseResult(x, y) { if(x == false) return y;};
 
-#define CheckNull(x) { if(x == nullptr) return;}
-#define CheckNullResult(x, y) { if(x == nullptr) return y;}
+#define CheckNull(x) { if(x == nullptr) return;};
+#define CheckNullResult(x, y) { if(x == nullptr) return y;};
 
 #define CreateTextRender() \
 {\
@@ -20,7 +20,7 @@
 	Text->TextRenderColor = FColor::Red;\
 	Text->HorizontalAlignment = EHorizTextAligment::EHTA_Center;\
 	Text->Text = FText::FromString(GetName().Replace(L"Default__", L""));\
-}
+};
 
 class U2211_03_API CHelpers
 {
@@ -58,5 +58,32 @@ public:
 	{
 		ConstructorHelpers::FClassFinder<T> asset(*InPath);
 		*OutClass = asset.Class;
+	}
+
+	template <typename T>
+	static T* FindActor(UWorld* InWorld)
+	{
+		for(AActor* actor : InWorld->GetCurrentLevel()->Actors)
+		{
+			if (!!actor && actor->IsA<T>())
+				return Cast<T>(actor);
+		}
+
+		return nullptr;
+	}
+
+	template <typename T>
+	static void FindActors(UWorld* InWorld, TArray<T*>& OutActors)
+	{
+		OutActors.Emplace();
+
+		for(AActor* actor : InWorld->GetCurrentLevel()->Actors)
+		{
+			if (!!actor && actor->IsA<T>())
+				OutActors.Add(Cast<T>(actor));
+
+		}
+
+		return nullptr;
 	}
 };

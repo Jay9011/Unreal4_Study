@@ -33,13 +33,22 @@ void AC04_Light::BeginPlay()
 
 	OffLight();
 
-	for(const AActor* actor : GetWorld()->GetCurrentLevel()->Actors)
-	{
-		if(!!actor && actor->IsA<AC04_Trigger>())
-		{
-			CLog::Log(actor->GetName());
-		}
-	}
+	// for(const AActor* actor : GetWorld()->GetCurrentLevel()->Actors)
+	// {
+	// 	if(!!actor && actor->IsA<AC04_Trigger>())
+	// 	{
+	// 		CLog::Log(actor->GetName());
+	// 	}
+	// }
+
+	AC04_Trigger* trigger = CHelpers::FindActor<AC04_Trigger>(GetWorld());
+	CheckNull(trigger)
+
+	trigger->OnBoxLightBeginOverlap.BindUFunction(this, "OnLight");
+	trigger->OnBoxLightEndOverlap.BindUFunction(this, "OffLight");
+
+	trigger->OnBoxLightColorOverlap.BindUFunction(this, "OnRandomColor");
+
 }
 
 void AC04_Light::OnLight()
@@ -52,5 +61,14 @@ void AC04_Light::OffLight()
 {
 	PointLight->SetVisibility(false);
 	PointLight2->SetVisibility(false);
+
+}
+
+FString AC04_Light::OnRandomColor(FLinearColor InColor)
+{
+	PointLight2->SetVisibility(true);
+	PointLight2->SetLightColor(InColor);
+
+	return "Color : " + InColor.ToString();
 
 }

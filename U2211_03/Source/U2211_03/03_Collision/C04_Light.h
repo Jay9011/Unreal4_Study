@@ -29,7 +29,11 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	void OnLight();
-	void OffLight();
+	UFUNCTION()
+		void OnLight();
+	UFUNCTION()
+		void OffLight();
+	UFUNCTION()
+		FString OnRandomColor(FLinearColor InColor);
 
 };

@@ -2,14 +2,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "C04_Trigger.generated.h"
+#include "C05_MultiTrigger.generated.h"
 
-DECLARE_DELEGATE(FBoxLightOverlap); // void func_name()
-DECLARE_DELEGATE_RetVal_OneParam(FString, FBoxLightColorOverlap, FLinearColor);
-
+DECLARE_MULTICAST_DELEGATE_TwoParams(FMultiLightOverlap, int32, FLinearColor);
 
 UCLASS()
-class U2211_03_API AC04_Trigger : public AActor
+class U2211_03_API AC05_MultiTrigger : public AActor
 {
 	GENERATED_BODY()
 
@@ -24,7 +22,7 @@ private:
 		class UTextRenderComponent* Text;
 
 public:	
-	AC04_Trigger();
+	AC05_MultiTrigger();
 
 protected:
 	virtual void BeginPlay() override;
@@ -33,15 +31,10 @@ private:
 	UFUNCTION()
 		void OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-	UFUNCTION()
-		void OnComponentEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
 public:
 	/**
 	 * Delegates
 	 */
-	FBoxLightOverlap OnBoxLightBeginOverlap;
-	FBoxLightOverlap OnBoxLightEndOverlap;
+	FMultiLightOverlap OnMultiLightOverlap;
 
-	FBoxLightColorOverlap OnBoxLightColorOverlap;
 };
