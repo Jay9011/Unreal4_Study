@@ -1,12 +1,13 @@
 #include "CPlayer.h"
 
-#include "Global.h"
 #include "CAnimInstance.h"
+#include "Global.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 ACPlayer::ACPlayer()
 {
@@ -42,6 +43,15 @@ ACPlayer::ACPlayer()
 void ACPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TArray<UMaterialInterface*> materials = GetMesh()->GetMaterials();
+	for (int32 i = 0; i < materials.Num(); i++)
+	{
+		UMaterialInstanceDynamic* temp = UMaterialInstanceDynamic::Create(materials[i], this);
+		GetMesh()->SetMaterial(i, temp);
+
+		Materials.Add(temp);
+	}
 	
 }
 
@@ -104,5 +114,11 @@ void ACPlayer::OnRun()
 void ACPlayer::OffRun()
 {
 	GetCharacterMovement()->MaxWalkSpeed = 400;
+}
+
+void ACPlayer::ChangeColor(FLinearColor InColor)
+{
+	for (UMaterialInstanceDynamic* material : Materials)
+		material->SetVectorParameterValue("BodyColor", InColor);
 }
 
