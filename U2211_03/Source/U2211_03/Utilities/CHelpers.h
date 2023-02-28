@@ -75,15 +75,13 @@ public:
 	template <typename T>
 	static void FindActors(UWorld* InWorld, TArray<T*>& OutActors)
 	{
-		OutActors.Emplace();
+		OutActors.Empty();
 
 		for(AActor* actor : InWorld->GetCurrentLevel()->Actors)
 		{
 			if (!!actor && actor->IsA<T>())
 				OutActors.Add(Cast<T>(actor));
-
+			
 		}
-
-		return nullptr;
 	}
 };
