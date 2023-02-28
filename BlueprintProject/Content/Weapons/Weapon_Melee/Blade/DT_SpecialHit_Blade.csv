@@ -1,3 +1,4 @@
 ,Damage,HitType,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
 DownAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 AirDashAttack,5,UpperNormal,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+AirFallingAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"

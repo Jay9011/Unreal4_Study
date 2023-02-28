@@ -1,3 +1,4 @@
 ,Montage,PlayRatio,CanMove,FixedCamera,Launch
 DownAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/JumpDownAttack_Inplace.JumpDownAttack_Inplace',1,FALSE,FALSE,"(X=0,Y=0)"
 AirDashAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Skill/Blade_Air_Dash_Attack.Blade_Air_Dash_Attack',1,FALSE,FALSE,"(X=0,Y=0)"
+AirFallingAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Skill/Blade_Air_Falling_Attack.Blade_Air_Falling_Attack',1,FALSE,FALSE,"(X=0,Y=0)"
