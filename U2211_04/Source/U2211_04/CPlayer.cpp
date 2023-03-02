@@ -7,13 +7,16 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Weapons/CWeaponComponent.h"
 
 ACPlayer::ACPlayer()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	CHelpers::CreateComponent<USpringArmComponent>(this, &SpringArm, "SpringArm", GetCapsuleComponent());
+	CHelpers::CreateComponent<USpringArmComponent>(this, &SpringArm, "SpringArm", GetMesh());
 	CHelpers::CreateComponent<UCameraComponent>(this, &Camera, "Camera", SpringArm);
+
+	CHelpers::CreateActorComponent<UCWeaponComponent>(this, &Weapon, "Weapon");
 
 
 	USkeletalMesh* mesh;

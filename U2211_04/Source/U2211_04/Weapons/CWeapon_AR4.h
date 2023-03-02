@@ -8,5 +8,7 @@ UCLASS()
 class U2211_04_API ACWeapon_AR4 : public ACWeapon
 {
 	GENERATED_BODY()
-	
+
+public:
+	ACWeapon_AR4();
 };
