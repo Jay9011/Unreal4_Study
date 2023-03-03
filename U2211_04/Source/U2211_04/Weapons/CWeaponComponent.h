@@ -28,9 +28,16 @@ public:
 	FORCEINLINE bool IsAK47Mode() { return Type == EWeaponType::AK47; }
 	FORCEINLINE bool IsPistolMode() { return Type == EWeaponType::Pistol; }
 
-
 public:	
 	UCWeaponComponent();
+
+// public:
+// 	void SetUnarmedMode();
+// 	void SetAR4Mode();
+//
+// private:
+// 	void SetMode(EWeaponType InType);
+// 	void ChangeType(EWeaponType InType);
 
 protected:
 	virtual void BeginPlay() override;

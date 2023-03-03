@@ -19,5 +19,15 @@ void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 								// 이하 진행을 하지 않습니다.
 
 	Speed = OwnerCharacter->GetVelocity().Size2D();
+	// Direction = CalculateDirection(OwnerCharacter->GetVelocity(), OwnerCharacter->GetActorRotation());
+
+	// UKismetMathLibrary::Conv_VectorToRotator(OwnerCharacter->GetVelocity());	// RotationFromXVector
+	FRotator actorRotationFromVelocity = OwnerCharacter->GetVelocity().ToOrientationRotator();	// 캐릭터가 바라보는 방향을 기준으로 하지 않고 캐릭터가 움직이는 방향을 기준으로 해야 옆걸음질 및 뒷걸음질이 가능하다!!
+	FRotator controlRotation = OwnerCharacter->GetControlRotation();
+	FRotator deltaRotation = UKismetMathLibrary::NormalizedDeltaRotator(actorRotationFromVelocity, controlRotation);
+
+	PrevRotation = UKismetMathLibrary::RInterpTo(PrevRotation, deltaRotation, DeltaSeconds, 25);
+
+	Direction = PrevRotation.Yaw;
 
 }
