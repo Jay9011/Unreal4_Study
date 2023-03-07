@@ -30,15 +30,16 @@ ACPlayer::ACPlayer()
 	CHelpers::GetClass<UCAnimInstance>(&animInstance, "AnimBlueprint'/Game/ABP_Character.ABP_Character_C'");
 	GetMesh()->SetAnimClass(animInstance);
 
-
-	bUseControllerRotationYaw = false;
-	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->MaxWalkSpeed = 400;
 
-	SpringArm->SetRelativeLocation(FVector(0, 0, 60));
-	SpringArm->TargetArmLength = 200;
+	SpringArm->SetRelativeLocation(FVector(0, 0, 150));
+	SpringArm->SetRelativeRotation(FRotator(0, 90, 0));
+	SpringArm->TargetArmLength = 300;
 	SpringArm->bUsePawnControlRotation = true;
-	SpringArm->bEnableCameraLag = true;
+	SpringArm->bDoCollisionTest = false;
+
+	Camera->SetRelativeLocation(FVector(-30, 0, 0));
+	Camera->bUsePawnControlRotation = false;
 
 }
 
@@ -65,6 +66,9 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAction("Run", EInputEvent::IE_Pressed, this, &ACPlayer::OnRun);
 	PlayerInputComponent->BindAction("Run", EInputEvent::IE_Released, this, &ACPlayer::OffRun);
+
+
+	PlayerInputComponent->BindAction("AR4", EInputEvent::IE_Pressed, Weapon, &UCWeaponComponent::SetAR4Mode);
 
 }
 

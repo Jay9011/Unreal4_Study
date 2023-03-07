@@ -2,7 +2,7 @@
 
 #include "Global.h"
 #include "CWeapon.h"
-#include "CPlayer.h"
+#include "Characters/CPlayer.h"
 
 UCWeaponComponent::UCWeaponComponent()
 {
@@ -35,6 +35,64 @@ void UCWeaponComponent::BeginPlay()
 void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+}
+
+ACWeapon* UCWeaponComponent::GetCurrWeapon()
+{
+	CheckTrueResult(IsUnarmedMode(), nullptr)
+
+	return Weapons[static_cast<int32>(Type)];
+}
+
+
+void UCWeaponComponent::SetUnarmedMode()
+{
+	CheckFalse(GetCurrWeapon()->CanUnequip())
+
+	GetCurrWeapon()->Unequip();
+	ChangeType(EWeaponType::Max);
+
+}
+
+void UCWeaponComponent::SetAR4Mode()
+{
+	SetMode(EWeaponType::AR4);
+
+}
+
+void UCWeaponComponent::SetMode(EWeaponType InType)
+{
+	if (Type == InType)
+	{
+		SetUnarmedMode();
+
+		return;
+	}
+	else if(IsUnarmedMode() == false)
+	{
+		CheckFalse(GetCurrWeapon()->CanUnequip())
+		GetCurrWeapon()->Unequip();
+	}
+
+	const int32 typeIndex = static_cast<int32>(InType);
+
+	CheckNull(Weapons[typeIndex])
+	CheckFalse(Weapons[typeIndex]->CanEquip())
+
+	Weapons[typeIndex]->Equip();
+
+	ChangeType(InType);
+
+}
+
+void UCWeaponComponent::ChangeType(EWeaponType InType)
+{
+	EWeaponType prevType = Type;
+	Type = InType;
+
+	if (OnWeaponTypeChanged.IsBound())
+		OnWeaponTypeChanged.Broadcast(prevType, InType);
 
 }
 

@@ -90,4 +90,26 @@ public:
 			
 		}
 	}
+
+	template <typename T>
+	static T* GetComponent(AActor* InActor)
+	{
+		return Cast<T>(InActor->GetComponentByClass(T::StaticClass()));
+	}
+
+	template <typename T>
+	static T* GetComponent(AActor* InActor, const FString& InName)
+	{
+		TArray<T*> components;
+		InActor->GetComponents<T>(components);
+
+		for(T* component : components)
+		{
+			if(component->GetName() == InName)
+				return component;
+		}
+
+		return nullptr;
+	}
+
 };

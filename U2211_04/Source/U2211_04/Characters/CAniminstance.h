@@ -27,7 +27,12 @@ public:
 	void NativeUpdateAnimation(float DeltaSeconds) override;
 
 private:
-	class ACharacter* OwnerCharacter;
+	UFUNCTION()
+	void OnWeaponTypeChanged(EWeaponType InPrevType, EWeaponType InNewType);
+
+private:
+	class ACPlayer* OwnerCharacter;
+	class UCWeaponComponent* Weapon;
 
 private:
 	FRotator PrevRotation;

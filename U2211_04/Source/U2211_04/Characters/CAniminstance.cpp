@@ -1,14 +1,21 @@
 #include "CAnimInstance.h"
 #include "Global.h"
-#include "GameFramework/Character.h"
+#include "Characters/CPlayer.h"
 
 
 void UCAnimInstance::NativeBeginPlay()
 {
 	Super::NativeBeginPlay(); // 부모 함수 호출
 
-	OwnerCharacter = Cast<ACharacter>(TryGetPawnOwner());
+	OwnerCharacter = Cast<ACPlayer>(TryGetPawnOwner());
+	CheckNull(OwnerCharacter)
 
+	// UActorComponent* comp = OwnerCharacter->GetComponentByClass(UCWeaponComponent::StaticClass());
+	// Weapon = Cast<UCWeaponComponent>(comp);
+	Weapon = CHelpers::GetComponent<UCWeaponComponent>(OwnerCharacter);
+	if(!!Weapon)
+		Weapon->OnWeaponTypeChanged.AddDynamic(this, &UCAnimInstance::OnWeaponTypeChanged);
+	
 }
 
 void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
@@ -30,4 +37,9 @@ void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 	Direction = PrevRotation.Yaw;
 
+}
+
+void UCAnimInstance::OnWeaponTypeChanged(EWeaponType InPrevType, EWeaponType InNewType)
+{
+	WeaponType = InNewType;
 }

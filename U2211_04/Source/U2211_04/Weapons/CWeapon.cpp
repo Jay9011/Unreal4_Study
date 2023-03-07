@@ -2,7 +2,7 @@
 
 #include "Global.h"
 #include "Components/SkeletalMeshComponent.h"
-#include "CPlayer.h"
+#include "Characters/CPlayer.h"
 
 ACWeapon::ACWeapon()
 {
@@ -31,5 +31,36 @@ void ACWeapon::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+bool ACWeapon::CanEquip()
+{
+	bool b = false;
+	b |= bEquipping;
+	b |= bReload;
+	b |= bFiring;
+
+	return !b;
+}
+
+void ACWeapon::Equip()
+{
+}
+
+void ACWeapon::Begin_Equip()
+{
+}
+
+void ACWeapon::End_Equip()
+{
+}
+
+bool ACWeapon::CanUnequip()
+{
+	return false;
+}
+
+void ACWeapon::Unequip()
+{
 }
 

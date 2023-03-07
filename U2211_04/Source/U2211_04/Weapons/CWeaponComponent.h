@@ -31,16 +31,22 @@ public:
 public:	
 	UCWeaponComponent();
 
-// public:
-// 	void SetUnarmedMode();
-// 	void SetAR4Mode();
-//
-// private:
-// 	void SetMode(EWeaponType InType);
-// 	void ChangeType(EWeaponType InType);
+public:
+	void SetUnarmedMode();
+	void SetAR4Mode();
+
+private:
+	void SetMode(EWeaponType InType);
+	void ChangeType(EWeaponType InType);
 
 protected:
 	virtual void BeginPlay() override;
+
+private:
+	class ACWeapon* GetCurrWeapon();
+
+public:
+	FWeaponTypeChanged OnWeaponTypeChanged;
 
 public:	
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

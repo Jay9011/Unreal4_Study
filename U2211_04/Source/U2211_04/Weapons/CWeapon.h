@@ -30,6 +30,23 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
+public:
+	bool CanEquip();
+	void Equip();
+	virtual void Begin_Equip();
+	virtual void End_Equip();
+
+	bool CanUnequip();
+	virtual void Unequip();
+
+
 private:
 	class ACPlayer* Owner;
+
+private:
+	bool bEquipping;
+	bool bInAim;
+	bool bFiring;
+	bool bReload;
+	bool bAutoFire = true;
 };
