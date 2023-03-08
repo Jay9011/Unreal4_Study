@@ -38,6 +38,34 @@ void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 
 }
 
+void UCWeaponComponent::Begin_Equip()
+{
+	CheckNull(GetCurrWeapon())
+	GetCurrWeapon()->Begin_Equip();
+}
+
+void UCWeaponComponent::End_Equip()
+{
+	CheckNull(GetCurrWeapon())
+	GetCurrWeapon()->End_Equip();
+}
+
+void UCWeaponComponent::Begin_Fire()
+{
+	CheckNull(GetCurrWeapon())
+	CheckFalse(GetCurrWeapon()->CanFire())
+
+	GetCurrWeapon()->Begin_Fire();
+
+}
+
+void UCWeaponComponent::End_Fire()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->End_Fire();
+}
+
 ACWeapon* UCWeaponComponent::GetCurrWeapon()
 {
 	CheckTrueResult(IsUnarmedMode(), nullptr)

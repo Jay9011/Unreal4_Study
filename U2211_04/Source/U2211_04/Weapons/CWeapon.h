@@ -12,7 +12,23 @@ class U2211_04_API ACWeapon : public AActor
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Equip")
 	FName HolsterSocketName;
-	
+
+	UPROPERTY(EditDefaultsOnly, Category="Equip")
+	class UAnimMontage* EquipMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category="Equip")
+	float EquipMontage_PlayRate = 1;
+
+	UPROPERTY(EditDefaultsOnly, Category="Equip")
+	FName RightHandSocketName;
+
+protected:
+	UPROPERTY(EditDefaultsOnly, Category="Hit")
+	float HitDistance = 3000;
+
+	UPROPERTY(EditDefaultsOnly, Category="Hit")
+	class UMaterialInstanceConstant* HitDecal;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
@@ -36,9 +52,17 @@ public:
 	virtual void Begin_Equip();
 	virtual void End_Equip();
 
+public:
 	bool CanUnequip();
 	virtual void Unequip();
 
+public:
+	bool CanFire();
+	void Begin_Fire();
+	void End_Fire();
+
+private:
+	void OnFiring();
 
 private:
 	class ACPlayer* Owner;
