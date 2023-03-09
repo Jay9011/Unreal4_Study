@@ -2,3 +2,5 @@
 DownAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 AirDashAttack,5,UpperNormal,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
 AirFallingAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+DodgeAttack,5,UpperNormal,1,FALSE,"(X=50,Y=100)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+DodgeAttack_Slash,5,UpperNormal,1,FALSE,"(X=50,Y=100)","(X=0,Y=0)",0,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
