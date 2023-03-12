@@ -19,5 +19,18 @@ ACWeapon_AR4::ACWeapon_AR4()
 		RightHandSocketName = "Rifle_AR4_RightHand";
 	}
 
+	// Aim
+	{
+		BaseData.TargetArmLength = 200;
+		BaseData.SocketOffset = FVector(0, 50, 15);
+		BaseData.FieldOfView = 90;
+
+		AimData.TargetArmLength = 80;
+		AimData.SocketOffset = FVector(0, 55, 10);
+		AimData.FieldOfView = 65;
+
+		LeftHandLocation = FVector(-30.0f, 15.5f, 7.0f);
+	}
+
 
 }

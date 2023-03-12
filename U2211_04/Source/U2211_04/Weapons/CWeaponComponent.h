@@ -52,11 +52,18 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 public:
+	bool IsInAim();
+	FVector GetLeftHandLocation();
+
+public:
 	void Begin_Equip();
 	void End_Equip();
 
 	void Begin_Fire();
 	void End_Fire();
+
+	void Begin_Aim();
+	void End_Aim();
 
 private:
 	EWeaponType Type = EWeaponType::Max;

@@ -38,6 +38,20 @@ void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 
 }
 
+bool UCWeaponComponent::IsInAim()
+{
+	CheckNullResult(GetCurrWeapon(), false)
+
+	return GetCurrWeapon()->IsInAim();
+}
+
+FVector UCWeaponComponent::GetLeftHandLocation()
+{
+	CheckNullResult(GetCurrWeapon(), FVector::ZeroVector)
+
+	return GetCurrWeapon()->GetLeftHandLocation();
+}
+
 void UCWeaponComponent::Begin_Equip()
 {
 	CheckNull(GetCurrWeapon())
@@ -64,6 +78,21 @@ void UCWeaponComponent::End_Fire()
 	CheckNull(GetCurrWeapon())
 
 	GetCurrWeapon()->End_Fire();
+}
+
+void UCWeaponComponent::Begin_Aim()
+{
+	CheckNull(GetCurrWeapon())
+	CheckFalse(GetCurrWeapon()->CanAim())
+
+	GetCurrWeapon()->Begin_Aim();
+}
+
+void UCWeaponComponent::End_Aim()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->End_Aim();
 }
 
 ACWeapon* UCWeaponComponent::GetCurrWeapon()

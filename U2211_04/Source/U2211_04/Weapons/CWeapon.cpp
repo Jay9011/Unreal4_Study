@@ -3,9 +3,37 @@
 #include "Global.h"
 #include "Camera/CameraComponent.h"
 #include "Characters/CPlayer.h"
-#include "Components/SkeletalMeshComponent.h"
 #include "Components/DecalComponent.h"
-#include  "Materials/MaterialInstanceConstant.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/TimelineComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Materials/MaterialInstanceConstant.h"
+
+/* * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * *
+ *	FWeaponAimData
+ * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * * */
+
+void FWeaponAimData::SetData(ACharacter* InOwner)
+{
+	USpringArmComponent* springArm = CHelpers::GetComponent<USpringArmComponent>(InOwner);
+	springArm->TargetArmLength = TargetArmLength;
+	springArm->SocketOffset = SocketOffset;
+}
+
+void FWeaponAimData::SetDataByNoneCurve(ACharacter* InOwner)
+{
+	USpringArmComponent* springArm = CHelpers::GetComponent<USpringArmComponent>(InOwner);
+	springArm->TargetArmLength = TargetArmLength;
+	springArm->SocketOffset = SocketOffset;
+
+	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(InOwner);
+	camera->FieldOfView = FieldOfView;
+
+}
+
+/* * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * *
+ *	ACWeapon
+ * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * * */
 
 ACWeapon::ACWeapon()
 {
@@ -14,8 +42,11 @@ ACWeapon::ACWeapon()
 	CHelpers::CreateComponent<USceneComponent>(this, &Root, "Root");
 	CHelpers::CreateComponent<USkeletalMeshComponent>(this, &Mesh, "Mesh", Root);
 
-	CHelpers::GetAsset<UMaterialInstanceConstant>(&HitDecal, "MaterialInstanceConstant'/Game/Materials/MI_Decal.MI_Decal'");
+	CHelpers::CreateActorComponent<UTimelineComponent>(this, &Timeline, "Timeline");
 
+	CHelpers::GetAsset<UMaterialInstanceConstant>(&HitDecal, "MaterialInstanceConstant'/Game/Materials/M_Decal_Inst.M_Decal_Inst'");
+
+	CHelpers::GetAsset<UCurveFloat>(&AimCurve, "CurveFloat'/Game/Weapons/Curv_Aim.Curv_Aim'");
 }
 
 void ACWeapon::BeginPlay()
@@ -25,10 +56,19 @@ void ACWeapon::BeginPlay()
 	Owner = Cast<ACPlayer>(GetOwner());
 
 	if (HolsterSocketName.IsValid())
-	{
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
-						  HolsterSocketName);
+		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), HolsterSocketName);
 
+
+	BaseData.SetDataByNoneCurve(Owner);
+
+	if (!!AimCurve)
+	{
+		FOnTimelineFloat timeline;
+		timeline.BindUFunction(this, "OnAiming");
+
+		Timeline->AddInterpFloat(AimCurve, timeline);
+		Timeline->SetLooping(false);
+		Timeline->SetPlayRate(AimingSpeed);
 	}
 }
 
@@ -137,6 +177,55 @@ void ACWeapon::OnFiring()
 		UDecalComponent* decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), HitDecal, FVector(5), hitResult.Location, rotator, 10);
 		decal->SetFadeScreenSize(0);
 	}
+
+}
+
+bool ACWeapon::CanAim()
+{
+	bool b = false;
+	b |= bEquipping;
+	b |= bReload;
+	b |= bInAim;
+
+	return !b;
+}
+
+void ACWeapon::Begin_Aim()
+{
+	bInAim = true;
+
+	if(!!AimCurve)
+	{
+		Timeline->PlayFromStart();
+		AimData.SetData(Owner);
+	
+		return;
+	}
+
+	AimData.SetDataByNoneCurve(Owner);
+}
+
+void ACWeapon::End_Aim()
+{
+	CheckFalse(bInAim)
+
+	bInAim = false;
+	
+	if(!!AimCurve)
+	{
+		Timeline->ReverseFromEnd();
+		BaseData.SetData(Owner);
+	
+		return;
+	}
+
+	BaseData.SetDataByNoneCurve(Owner);
+}
+
+void ACWeapon::OnAiming(float Output)
+{
+	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(Owner);
+	camera->FieldOfView = FMath::Lerp<float>(AimData.FieldOfView, BaseData.FieldOfView, Output);
 
 }
 

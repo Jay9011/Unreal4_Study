@@ -22,6 +22,15 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
 	EWeaponType WeaponType = EWeaponType::Max;
 
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
+	bool bInAim;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
+	bool bUseHandIK;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
+	FVector LeftHandLocation;
+
 public:
 	void NativeBeginPlay() override;
 	void NativeUpdateAnimation(float DeltaSeconds) override;

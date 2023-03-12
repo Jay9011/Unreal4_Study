@@ -4,6 +4,27 @@
 #include "GameFramework/Actor.h"
 #include "CWeapon.generated.h"
 
+USTRUCT()
+struct FWeaponAimData
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	float TargetArmLength;
+
+	UPROPERTY(EditAnywhere)
+	FVector SocketOffset;
+
+	UPROPERTY(EditAnywhere)
+	float FieldOfView;
+
+public:
+	void SetData(class ACharacter* InOwner);
+	void SetDataByNoneCurve(class ACharacter* InOwner);
+
+};
+
 UCLASS()
 class U2211_04_API ACWeapon : public AActor
 {
@@ -29,6 +50,22 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Hit")
 	class UMaterialInstanceConstant* HitDecal;
 
+protected:
+	UPROPERTY(EditDefaultsOnly, Category="Aim")
+	FWeaponAimData BaseData;
+
+	UPROPERTY(EditDefaultsOnly, Category="Aim")
+	FWeaponAimData AimData;
+
+	UPROPERTY(EditDefaultsOnly, Category="Aim")
+	class UCurveFloat* AimCurve;
+
+	UPROPERTY(EditDefaultsOnly, Category="Aim")
+	float AimingSpeed = 200;
+
+	UPROPERTY(EditDefaultsOnly, Category="Aim")
+	FVector LeftHandLocation;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
@@ -36,6 +73,14 @@ private:
 protected:
 	UPROPERTY(VisibleAnywhere)
 	class USkeletalMeshComponent* Mesh;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	class UTimelineComponent* Timeline;
+
+public:
+	FORCEINLINE bool IsInAim() { return bInAim; }
+	FORCEINLINE FVector GetLeftHandLocation() { return LeftHandLocation; }
 
 public:
 	ACWeapon();
@@ -63,6 +108,15 @@ public:
 
 private:
 	void OnFiring();
+
+public:
+	bool CanAim();
+	virtual void Begin_Aim();
+	virtual void End_Aim();
+
+private:
+	UFUNCTION()
+	void OnAiming(float Output);
 
 private:
 	class ACPlayer* Owner;
