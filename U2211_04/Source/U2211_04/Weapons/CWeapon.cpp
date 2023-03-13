@@ -8,6 +8,8 @@
 #include "Components/TimelineComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Materials/MaterialInstanceConstant.h"
+#include "Particles/ParticleSystem.h"
+#include "Sound/SoundWave.h"
 
 /* * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * *
  *	FWeaponAimData
@@ -28,7 +30,6 @@ void FWeaponAimData::SetDataByNoneCurve(ACharacter* InOwner)
 
 	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(InOwner);
 	camera->FieldOfView = FieldOfView;
-
 }
 
 /* * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * *
@@ -44,9 +45,16 @@ ACWeapon::ACWeapon()
 
 	CHelpers::CreateActorComponent<UTimelineComponent>(this, &Timeline, "Timeline");
 
-	CHelpers::GetAsset<UMaterialInstanceConstant>(&HitDecal, "MaterialInstanceConstant'/Game/Materials/M_Decal_Inst.M_Decal_Inst'");
+	CHelpers::GetAsset<UMaterialInstanceConstant>(
+		&HitDecal, "MaterialInstanceConstant'/Game/Materials/M_Decal_Inst.M_Decal_Inst'");
+	CHelpers::GetAsset<UParticleSystem>(&HitParticle,
+										"ParticleSystem'/Game/Effects/P_Impact_Default.P_Impact_Default'");
 
 	CHelpers::GetAsset<UCurveFloat>(&AimCurve, "CurveFloat'/Game/Weapons/Curv_Aim.Curv_Aim'");
+
+	CHelpers::GetAsset<UParticleSystem>(&FlashParticle, "ParticleSystem'/Game/Effects/P_Muzzleflash.P_Muzzleflash'");
+	CHelpers::GetAsset<UParticleSystem>(&EjectParticle, "ParticleSystem'/Game/Effects/P_Eject_bullet.P_Eject_bullet'");
+	CHelpers::GetAsset<USoundWave>(&FireSound, "SoundWave'/Game/Sounds/S_RifleShoot.S_RifleShoot'");
 }
 
 void ACWeapon::BeginPlay()
@@ -56,7 +64,8 @@ void ACWeapon::BeginPlay()
 	Owner = Cast<ACPlayer>(GetOwner());
 
 	if (HolsterSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), HolsterSocketName);
+		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
+						  HolsterSocketName);
 
 
 	BaseData.SetDataByNoneCurve(Owner);
@@ -75,7 +84,6 @@ void ACWeapon::BeginPlay()
 void ACWeapon::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 bool ACWeapon::CanEquip()
@@ -92,22 +100,20 @@ void ACWeapon::Equip()
 {
 	bEquipping = true;
 
-	if(!!EquipMontage)
+	if (!!EquipMontage)
 		Owner->PlayAnimMontage(EquipMontage, EquipMontage_PlayRate);
-	
 }
 
 void ACWeapon::Begin_Equip()
 {
 	if (RightHandSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), RightHandSocketName);
-
+		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
+						  RightHandSocketName);
 }
 
 void ACWeapon::End_Equip()
 {
 	bEquipping = false;
-
 }
 
 bool ACWeapon::CanUnequip()
@@ -121,9 +127,9 @@ bool ACWeapon::CanUnequip()
 
 void ACWeapon::Unequip()
 {
-	if(HolsterSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), HolsterSocketName);
-
+	if (HolsterSocketName.IsValid())
+		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
+						  HolsterSocketName);
 }
 
 bool ACWeapon::CanFire()
@@ -141,13 +147,11 @@ void ACWeapon::Begin_Fire()
 	bFiring = true;
 
 	OnFiring();
-
 }
 
 void ACWeapon::End_Fire()
 {
 	bFiring = false;
-
 }
 
 void ACWeapon::OnFiring()
@@ -157,7 +161,7 @@ void ACWeapon::OnFiring()
 	FTransform transform = camera->GetComponentToWorld();
 
 	FVector start = transform.GetLocation() + direction;
-
+	direction = UKismetMathLibrary::RandomUnitVectorInConeInDegrees(direction, RecoilAngle);
 	FVector end = transform.GetLocation() + direction * HitDistance;
 
 	// DrawDebugLine(GetWorld(), start, end, FColor::Green, true, 2.0f);
@@ -169,14 +173,33 @@ void ACWeapon::OnFiring()
 	UKismetSystemLibrary::LineTraceSingle(GetWorld(), start, end,
 										  ETraceTypeQuery::TraceTypeQuery1, false, ignores,
 										  EDrawDebugTrace::None, hitResult, true);
-
+	
 	if (hitResult.bBlockingHit)
 	{
 		FRotator rotator = hitResult.ImpactNormal.Rotation();
 
-		UDecalComponent* decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), HitDecal, FVector(5), hitResult.Location, rotator, 10);
-		decal->SetFadeScreenSize(0);
+		if(!!HitDecal)
+		{
+			UDecalComponent* decal = UGameplayStatics::SpawnDecalAtLocation(GetWorld(), HitDecal, FVector(5),
+																			hitResult.Location, rotator, 10);
+			decal->SetFadeScreenSize(0);
+		}
+
+		if (!!HitParticle)
+		{
+			FRotator impactRotator = UKismetMathLibrary::FindLookAtRotation(hitResult.Location, hitResult.TraceStart);
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, hitResult.Location, impactRotator);
+		}
 	}
+
+	if (!!FlashParticle)
+		UGameplayStatics::SpawnEmitterAttached(FlashParticle, Mesh, "Muzzle", FVector::ZeroVector,
+											   FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset);
+
+	if (!!EjectParticle)
+		UGameplayStatics::SpawnEmitterAttached(EjectParticle, Mesh, "Eject", FVector::ZeroVector,
+											   FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset);
+
 
 }
 
@@ -194,11 +217,11 @@ void ACWeapon::Begin_Aim()
 {
 	bInAim = true;
 
-	if(!!AimCurve)
+	if (!!AimCurve)
 	{
 		Timeline->PlayFromStart();
 		AimData.SetData(Owner);
-	
+
 		return;
 	}
 
@@ -210,12 +233,12 @@ void ACWeapon::End_Aim()
 	CheckFalse(bInAim)
 
 	bInAim = false;
-	
-	if(!!AimCurve)
+
+	if (!!AimCurve)
 	{
 		Timeline->ReverseFromEnd();
 		BaseData.SetData(Owner);
-	
+
 		return;
 	}
 
@@ -226,6 +249,4 @@ void ACWeapon::OnAiming(float Output)
 {
 	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(Owner);
 	camera->FieldOfView = FMath::Lerp<float>(AimData.FieldOfView, BaseData.FieldOfView, Output);
-
 }
-

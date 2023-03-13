@@ -15,7 +15,9 @@ void UCAnimInstance::NativeBeginPlay()
 	Weapon = CHelpers::GetComponent<UCWeaponComponent>(OwnerCharacter);
 	if(!!Weapon)
 		Weapon->OnWeaponTypeChanged.AddDynamic(this, &UCAnimInstance::OnWeaponTypeChanged);
-	
+
+	CLog::Log(OwnerCharacter->GetController());
+	CLog::Log(OwnerCharacter->InFreeCam() ? 1 : 0);
 }
 
 void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
@@ -32,12 +34,15 @@ void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	FRotator actorRotationFromVelocity = OwnerCharacter->GetVelocity().ToOrientationRotator();	// 캐릭터가 바라보는 방향을 기준으로 하지 않고 캐릭터가 움직이는 방향을 기준으로 해야 옆걸음질 및 뒷걸음질이 가능하다!!
 	FRotator controlRotation = OwnerCharacter->GetControlRotation();
 	FRotator deltaRotation = UKismetMathLibrary::NormalizedDeltaRotator(actorRotationFromVelocity, controlRotation);
-
 	PrevRotation = UKismetMathLibrary::RInterpTo(PrevRotation, deltaRotation, DeltaSeconds, 25);
 
 	Direction = PrevRotation.Yaw;
 
+	Pitch = UKismetMathLibrary::FInterpTo(Pitch, OwnerCharacter->GetBaseAimRotation().Pitch, DeltaSeconds, 25);
+
+
 	bInAim = Weapon->IsInAim();
+	bFiring = Weapon->IsFiring();
 	bUseHandIK = Weapon->IsUnarmedMode() == false;
 	LeftHandLocation = Weapon->GetLeftHandLocation();
 

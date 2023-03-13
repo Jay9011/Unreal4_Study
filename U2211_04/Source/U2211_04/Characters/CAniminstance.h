@@ -13,10 +13,13 @@ class U2211_04_API UCAnimInstance : public UAnimInstance
 protected:
 	// Preview 를 보기 위해서 EditAnywhere 를 사용해야 합니다.
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Animation")
-		float Speed;
+	float Speed;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Animation")
-		float Direction;
+	float Direction;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Animation")
+	float Pitch;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
@@ -24,6 +27,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
 	bool bInAim;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
+	bool bFiring;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapons")
 	bool bUseHandIK;

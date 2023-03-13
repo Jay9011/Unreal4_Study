@@ -22,7 +22,6 @@ public:
 public:
 	void SetData(class ACharacter* InOwner);
 	void SetDataByNoneCurve(class ACharacter* InOwner);
-
 };
 
 UCLASS()
@@ -50,6 +49,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Hit")
 	class UMaterialInstanceConstant* HitDecal;
 
+	UPROPERTY(EditDefaultsOnly, Category="Hit")
+	class UParticleSystem* HitParticle;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Aim")
 	FWeaponAimData BaseData;
@@ -67,6 +69,20 @@ protected:
 	FVector LeftHandLocation;
 
 private:
+	UPROPERTY(EditDefaultsOnly, Category="Fire")
+	class UParticleSystem* FlashParticle;
+
+	UPROPERTY(EditDefaultsOnly, Category="Fire")
+	class UParticleSystem* EjectParticle;
+
+	UPROPERTY(EditDefaultsOnly, Category="Fire")
+	class USoundWave* FireSound;
+
+private:
+	UPROPERTY(EditDefaultsOnly, Category="Recoil")
+	float RecoilAngle = 0.75;
+
+private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
 
@@ -80,6 +96,7 @@ private:
 
 public:
 	FORCEINLINE bool IsInAim() { return bInAim; }
+	FORCEINLINE bool IsFiring() { return bFiring; }
 	FORCEINLINE FVector GetLeftHandLocation() { return LeftHandLocation; }
 
 public:

@@ -45,6 +45,13 @@ bool UCWeaponComponent::IsInAim()
 	return GetCurrWeapon()->IsInAim();
 }
 
+bool UCWeaponComponent::IsFiring()
+{
+	CheckNullResult(GetCurrWeapon(), false)
+
+	return GetCurrWeapon()->IsFiring();
+}
+
 FVector UCWeaponComponent::GetLeftHandLocation()
 {
 	CheckNullResult(GetCurrWeapon(), FVector::ZeroVector)

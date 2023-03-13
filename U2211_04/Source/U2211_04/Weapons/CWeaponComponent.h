@@ -53,6 +53,7 @@ public:
 
 public:
 	bool IsInAim();
+	bool IsFiring();
 	FVector GetLeftHandLocation();
 
 public:
