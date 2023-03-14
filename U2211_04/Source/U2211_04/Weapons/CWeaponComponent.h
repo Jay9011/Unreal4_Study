@@ -22,6 +22,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Settings")
 	TArray<TSubclassOf<class ACWeapon>> WeaponClasses;
 
+	UPROPERTY(EditAnywhere, Category = "Settings")
+	TSubclassOf<class UCUserWidget_HUD> HUDClass;
+
 public:
  	FORCEINLINE bool IsUnarmedMode() { return Type == EWeaponType::Max; }
 	FORCEINLINE bool IsAR4Mode() { return Type == EWeaponType::AR4; }
@@ -66,10 +69,14 @@ public:
 	void Begin_Aim();
 	void End_Aim();
 
+public:
+	void ToggleAutoFire();
+	
 private:
 	EWeaponType Type = EWeaponType::Max;
 
 private:
 	class ACPlayer* Owner;
 	TArray<class ACWeapon*> Weapons;
+	class UCUserWidget_HUD* HUD;
 };

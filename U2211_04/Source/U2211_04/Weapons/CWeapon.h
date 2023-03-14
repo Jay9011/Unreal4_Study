@@ -68,7 +68,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Aim")
 	FVector LeftHandLocation;
 
-private:
+protected:
 	UPROPERTY(EditDefaultsOnly, Category="Fire")
 	class UParticleSystem* FlashParticle;
 
@@ -78,9 +78,18 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category="Fire")
 	class USoundWave* FireSound;
 
-private:
+	UPROPERTY(EditDefaultsOnly, Category="Fire")
+	float AutoFireInterval = 0.2f;
+
+protected:
 	UPROPERTY(EditDefaultsOnly, Category="Recoil")
-	float RecoilAngle = 0.75;
+	TSubclassOf<class UMatineeCameraShake> CameraShakeClass;
+
+	UPROPERTY(EditDefaultsOnly, Category="Recoil")
+	float RecoilAngle = 0.75f;
+
+	UPROPERTY(EditDefaultsOnly, Category="Recoil")
+	float RecoilRate = 0.05f;
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -97,6 +106,7 @@ private:
 public:
 	FORCEINLINE bool IsInAim() { return bInAim; }
 	FORCEINLINE bool IsFiring() { return bFiring; }
+	FORCEINLINE bool IsAutoFire() { return bAutoFire; }
 	FORCEINLINE FVector GetLeftHandLocation() { return LeftHandLocation; }
 
 public:
@@ -124,6 +134,7 @@ public:
 	void End_Fire();
 
 private:
+	UFUNCTION()
 	void OnFiring();
 
 public:
@@ -131,6 +142,9 @@ public:
 	virtual void Begin_Aim();
 	virtual void End_Aim();
 
+public:
+	void ToggleAutoFire();
+	
 private:
 	UFUNCTION()
 	void OnAiming(float Output);
@@ -144,4 +158,9 @@ private:
 	bool bFiring;
 	bool bReload;
 	bool bAutoFire = true;
+
+private:
+	FTimerHandle AutoFireHandle;
+
+	FTimerDynamicDelegate Delegate;
 };

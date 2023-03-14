@@ -2,6 +2,7 @@
 
 #include "Global.h"
 #include "Animation/AnimMontage.h"
+#include "Camera/CameraShake.h"
 
 ACWeapon_AR4::ACWeapon_AR4()
 {
@@ -32,5 +33,15 @@ ACWeapon_AR4::ACWeapon_AR4()
 		LeftHandLocation = FVector(-30.0f, 15.5f, 7.0f);
 	}
 
+	// Fire
+	{
+		AutoFireInterval = 0.15f;
+	}
+
+	// Recoil
+	{
+		CHelpers::GetClass<UMatineeCameraShake>(&CameraShakeClass,
+												"Blueprint'/Game/Weapons/BP_CameraShake_AR4.BP_CameraShake_AR4_C'");
+	}
 
 }

@@ -55,6 +55,8 @@ ACWeapon::ACWeapon()
 	CHelpers::GetAsset<UParticleSystem>(&FlashParticle, "ParticleSystem'/Game/Effects/P_Muzzleflash.P_Muzzleflash'");
 	CHelpers::GetAsset<UParticleSystem>(&EjectParticle, "ParticleSystem'/Game/Effects/P_Eject_bullet.P_Eject_bullet'");
 	CHelpers::GetAsset<USoundWave>(&FireSound, "SoundWave'/Game/Sounds/S_RifleShoot.S_RifleShoot'");
+
+	// Delegate.BindUFunction(this, "OnFiring");
 }
 
 void ACWeapon::BeginPlay()
@@ -146,11 +148,22 @@ void ACWeapon::Begin_Fire()
 {
 	bFiring = true;
 
+	if(bAutoFire)
+	{
+		// AutoFireHandle = UKismetSystemLibrary::K2_SetTimerDelegate(Delegate, AutoFireInterval, true, 0);
+		GetWorld()->GetTimerManager().SetTimer(AutoFireHandle, this, &ACWeapon::OnFiring, AutoFireInterval, true, 0);
+
+		return;
+	}
+
 	OnFiring();
 }
 
 void ACWeapon::End_Fire()
 {
+	if(bAutoFire)
+		GetWorld()->GetTimerManager().ClearTimer(AutoFireHandle);
+
 	bFiring = false;
 }
 
@@ -200,6 +213,20 @@ void ACWeapon::OnFiring()
 		UGameplayStatics::SpawnEmitterAttached(EjectParticle, Mesh, "Eject", FVector::ZeroVector,
 											   FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset);
 
+	FVector muzzleLocation = Mesh->GetSocketLocation("Muzzle");
+
+	if(!!FireSound)
+		UGameplayStatics::SpawnSoundAtLocation(GetWorld(), FireSound, muzzleLocation);
+
+	if (!!CameraShakeClass)
+	{
+		APlayerController* controller = Owner->GetController<APlayerController>();
+
+		if(!!controller)
+			controller->PlayerCameraManager->StartCameraShake(CameraShakeClass);
+	}
+
+	Owner->AddControllerPitchInput(-RecoilRate * UKismetMathLibrary::RandomFloatInRange(0.8f, 1.2f));
 
 }
 
@@ -243,6 +270,11 @@ void ACWeapon::End_Aim()
 	}
 
 	BaseData.SetDataByNoneCurve(Owner);
+}
+
+void ACWeapon::ToggleAutoFire()
+{
+	bAutoFire = !bAutoFire;
 }
 
 void ACWeapon::OnAiming(float Output)

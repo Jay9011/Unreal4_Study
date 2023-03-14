@@ -3,10 +3,13 @@
 #include "Global.h"
 #include "CWeapon.h"
 #include "Characters/CPlayer.h"
+#include "Widget/CUserWidget_HUD.h"
 
 UCWeaponComponent::UCWeaponComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
+
+	CHelpers::GetClass<UCUserWidget_HUD>(&HUDClass, "WidgetBlueprint'/Game/Widgets/WB_HUD.WB_HUD_C'");
 
 }
 
@@ -30,12 +33,26 @@ void UCWeaponComponent::BeginPlay()
 			Weapons.Add(weapon);
 		}///if(!!weaponClass)
 	}///for(TSubclassOf<ACWeapon> weaponClass : WeaponClasses)
+
+	if(!!HUDClass)
+	{
+		HUD = CreateWidget<UCUserWidget_HUD, APlayerController>(Owner->GetController<APlayerController>(), HUDClass);
+		HUD->AddToViewport();
+		HUD->SetVisibility(ESlateVisibility::Collapsed);
+	}
 }
 
 void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	if (GetCurrWeapon())
+	{
+		if(!!HUD)
+		{
+			GetCurrWeapon()->IsAutoFire() ? HUD->OnAutoFire() : HUD->OffAutoFire();
+		}
+	}
 }
 
 bool UCWeaponComponent::IsInAim()
@@ -102,6 +119,13 @@ void UCWeaponComponent::End_Aim()
 	GetCurrWeapon()->End_Aim();
 }
 
+void UCWeaponComponent::ToggleAutoFire()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->ToggleAutoFire();
+}
+
 ACWeapon* UCWeaponComponent::GetCurrWeapon()
 {
 	CheckTrueResult(IsUnarmedMode(), nullptr)
@@ -117,6 +141,8 @@ void UCWeaponComponent::SetUnarmedMode()
 	GetCurrWeapon()->Unequip();
 	ChangeType(EWeaponType::Max);
 
+	if(!!HUD)
+		HUD->SetVisibility(ESlateVisibility::Collapsed);
 }
 
 void UCWeaponComponent::SetAR4Mode()
@@ -148,6 +174,8 @@ void UCWeaponComponent::SetMode(EWeaponType InType)
 
 	ChangeType(InType);
 
+	if(!!HUD)
+		HUD->SetVisibility(ESlateVisibility::HitTestInvisible);
 }
 
 void UCWeaponComponent::ChangeType(EWeaponType InType)

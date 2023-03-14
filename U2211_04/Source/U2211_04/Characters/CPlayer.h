@@ -10,15 +10,19 @@ class U2211_04_API ACPlayer : public ACharacter
 	GENERATED_BODY()
 
 private:
-	UPROPERTY(VisibleAnywhere)
-		class USpringArmComponent* SpringArm;
-
-	UPROPERTY(VisibleAnywhere)
-		class UCameraComponent* Camera;
+	UPROPERTY(EditDefaultsOnly, Category = "Camera")
+	FVector2D PitchRange = FVector2D(-40, +45);
 
 private:
 	UPROPERTY(VisibleAnywhere)
-		class UCWeaponComponent* Weapon;
+	class USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere)
+	class UCameraComponent* Camera;
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	class UCWeaponComponent* Weapon;
 
 public:
 	ACPlayer();
