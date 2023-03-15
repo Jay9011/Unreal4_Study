@@ -3,6 +3,7 @@
 #include "Global.h"
 #include "Animation/AnimMontage.h"
 #include "Camera/CameraShake.h"
+#include "Widget/CUserWidget_CrossHair.h"
 
 ACWeapon_AR4::ACWeapon_AR4()
 {
@@ -42,6 +43,15 @@ ACWeapon_AR4::ACWeapon_AR4()
 	{
 		CHelpers::GetClass<UMatineeCameraShake>(&CameraShakeClass,
 												"Blueprint'/Game/Weapons/BP_CameraShake_AR4.BP_CameraShake_AR4_C'");
+		RecoilAngle = 0.75f;
+		RecoilRate = 0.05f;
+		SpreadSpeed = 2.0f;
+		MaxSpreadAlignment = 2.0f;
 	}
 
+	// UI
+	{
+		CHelpers::GetClass<UCUserWidget_CrossHair>(&CrossHairClass, "WidgetBlueprint'/Game/Widgets/WB_CrossHair.WB_CrossHair_C'");
+
+	}
 }

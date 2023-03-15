@@ -81,6 +81,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Fire")
 	float AutoFireInterval = 0.2f;
 
+	UPROPERTY(EditDefaultsOnly, Category="Fire")
+	TSubclassOf<class ACBullet> BulletClass;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category="Recoil")
 	TSubclassOf<class UMatineeCameraShake> CameraShakeClass;
@@ -90,6 +93,16 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category="Recoil")
 	float RecoilRate = 0.05f;
+
+	UPROPERTY(EditDefaultsOnly, Category="Recoil")
+	float SpreadSpeed;
+
+	UPROPERTY(EditDefaultsOnly, Category="Recoil")
+	float MaxSpreadAlignment;
+
+protected:
+	UPROPERTY(EditDefaultsOnly, Category="UI")
+	TSubclassOf<class UCUserWidget_CrossHair> CrossHairClass;
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -162,5 +175,13 @@ private:
 private:
 	FTimerHandle AutoFireHandle;
 
-	FTimerDynamicDelegate Delegate;
+	// FTimerDynamicDelegate Delegate;
+
+protected:
+	class UCUserWidget_CrossHair* CrossHair;
+
+private:
+	float CurrSpreadRadius;
+	float LastAddSpreadTime;
+
 };

@@ -1,6 +1,7 @@
 #include "Weapons/CWeapon.h"
 
 #include "Global.h"
+#include "CBullet.h"
 #include "Camera/CameraComponent.h"
 #include "Characters/CPlayer.h"
 #include "Components/DecalComponent.h"
@@ -10,6 +11,9 @@
 #include "Materials/MaterialInstanceConstant.h"
 #include "Particles/ParticleSystem.h"
 #include "Sound/SoundWave.h"
+#include "Widget/CUserWidget_CrossHair.h"
+
+// #define DEBUG_BULLET_PARAMETER_LOG 1
 
 /* * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * * * * * * * *
  *	FWeaponAimData
@@ -56,6 +60,8 @@ ACWeapon::ACWeapon()
 	CHelpers::GetAsset<UParticleSystem>(&EjectParticle, "ParticleSystem'/Game/Effects/P_Eject_bullet.P_Eject_bullet'");
 	CHelpers::GetAsset<USoundWave>(&FireSound, "SoundWave'/Game/Sounds/S_RifleShoot.S_RifleShoot'");
 
+	CHelpers::GetClass<ACBullet>(&BulletClass, "Blueprint'/Game/Weapons/BP_CBullet.BP_CBullet_C'");
+
 	// Delegate.BindUFunction(this, "OnFiring");
 }
 
@@ -81,11 +87,33 @@ void ACWeapon::BeginPlay()
 		Timeline->SetLooping(false);
 		Timeline->SetPlayRate(AimingSpeed);
 	}
+
+	if (!!CrossHairClass)
+	{
+		CrossHair = CreateWidget<UCUserWidget_CrossHair, APlayerController>(
+			Owner->GetController<APlayerController>(), CrossHairClass);
+		CrossHair->AddToViewport();
+		CrossHair->SetVisibility(ESlateVisibility::Collapsed);
+		CrossHair->UpdateSpreadRange(CurrSpreadRadius, MaxSpreadAlignment);
+	}
 }
 
 void ACWeapon::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (LastAddSpreadTime >= 0.0f)
+	{
+		if (GetWorld()->GetTimeSeconds() - LastAddSpreadTime >= AutoFireInterval + 0.25f)
+		{
+			CurrSpreadRadius = 0.0f;
+			LastAddSpreadTime = 0.0f;
+
+			if(!!CrossHair)
+				CrossHair->UpdateSpreadRange(CurrSpreadRadius, MaxSpreadAlignment);
+
+		}
+	}
 }
 
 bool ACWeapon::CanEquip()
@@ -116,6 +144,10 @@ void ACWeapon::Begin_Equip()
 void ACWeapon::End_Equip()
 {
 	bEquipping = false;
+
+	if(!!CrossHair)
+		CrossHair->SetVisibility(ESlateVisibility::HitTestInvisible);
+
 }
 
 bool ACWeapon::CanUnequip()
@@ -132,6 +164,9 @@ void ACWeapon::Unequip()
 	if (HolsterSocketName.IsValid())
 		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
 						  HolsterSocketName);
+
+	if(!!CrossHair)
+		CrossHair->SetVisibility(ESlateVisibility::Collapsed);
 }
 
 bool ACWeapon::CanFire()
@@ -161,7 +196,7 @@ void ACWeapon::Begin_Fire()
 
 void ACWeapon::End_Fire()
 {
-	if(bAutoFire)
+	if(GetWorld()->GetTimerManager().IsTimerActive(AutoFireHandle))
 		GetWorld()->GetTimerManager().ClearTimer(AutoFireHandle);
 
 	bFiring = false;
@@ -227,6 +262,33 @@ void ACWeapon::OnFiring()
 	}
 
 	Owner->AddControllerPitchInput(-RecoilRate * UKismetMathLibrary::RandomFloatInRange(0.8f, 1.2f));
+
+	if (CurrSpreadRadius <= 1.0f)
+	{
+		CurrSpreadRadius += SpreadSpeed * GetWorld()->GetDeltaSeconds();
+
+		if(!!CrossHair)
+			CrossHair->UpdateSpreadRange(CurrSpreadRadius, MaxSpreadAlignment);
+
+	}
+	LastAddSpreadTime = GetWorld()->GetTimeSeconds();
+
+	if(!!BulletClass)
+	{
+		FVector bulletLocation = Mesh->GetSocketLocation("Muzzle_Bullet");
+		
+		FActorSpawnParameters params;
+		params.Owner = this;
+		params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		
+		ACBullet* bullet = GetWorld()->SpawnActor<ACBullet>(BulletClass, bulletLocation, direction.Rotation(), params);
+		if (!!bullet)
+			bullet->Shoot(direction);
+
+#if DEBUG_BULLET_PARAMETER_LOG
+		CLog::Log(L"Bullet Owner : " + params.Owner->GetName());
+#endif
+	}
 
 }
 
