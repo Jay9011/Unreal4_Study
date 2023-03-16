@@ -3,3 +3,4 @@ DownAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/JumpDownAttack
 AirDashAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Skill/Blade_Air_Dash_Attack.Blade_Air_Dash_Attack',1,FALSE,FALSE,"(X=0,Y=0)"
 AirFallingAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Skill/Blade_Air_Falling_Attack.Blade_Air_Falling_Attack',1,FALSE,FALSE,"(X=0,Y=0)"
 DodgeAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Attack/Skill/Blade_DodgeAttack_Skill.Blade_DodgeAttack_Skill',1.5,FALSE,TRUE,"(X=0,Y=0)"
+ParryingAttack,AnimMontage'/Game/Resources/Anim_Montages/Blade/Guard/Blade_Guard_Attack.Blade_Guard_Attack',1,FALSE,FALSE,"(X=0,Y=0)"
