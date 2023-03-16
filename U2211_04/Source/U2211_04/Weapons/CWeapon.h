@@ -104,6 +104,19 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="UI")
 	TSubclassOf<class UCUserWidget_CrossHair> CrossHairClass;
 
+protected:
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	uint8 MaxMagazineCount;
+
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	class UAnimMontage* ReloadMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	float ReloadMontage_PlayRate;
+
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	FName MagazineBoneName;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
@@ -122,6 +135,8 @@ public:
 	FORCEINLINE bool IsAutoFire() { return bAutoFire; }
 	FORCEINLINE FVector GetLeftHandLocation() { return LeftHandLocation; }
 
+	FORCEINLINE uint8 GetCurrMagazineCount() { return CurrMagazineCount; }
+	FORCEINLINE uint8 GetMaxMagazineCount() { return MaxMagazineCount; }
 public:
 	ACWeapon();
 
@@ -162,6 +177,15 @@ private:
 	UFUNCTION()
 	void OnAiming(float Output);
 
+public:
+	bool CanReload();
+	void Reload();
+
+	void Eject_Magazine();
+	void Spawn_Magazine();
+	void Load_Magazine();
+	void End_Reload();
+
 private:
 	class ACPlayer* Owner;
 
@@ -184,4 +208,6 @@ private:
 	float CurrSpreadRadius;
 	float LastAddSpreadTime;
 
+private:
+	uint8 CurrMagazineCount;
 };

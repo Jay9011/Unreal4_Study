@@ -96,6 +96,8 @@ void ACWeapon::BeginPlay()
 		CrossHair->SetVisibility(ESlateVisibility::Collapsed);
 		CrossHair->UpdateSpreadRange(CurrSpreadRadius, MaxSpreadAlignment);
 	}
+
+	CurrMagazineCount = MaxMagazineCount;
 }
 
 void ACWeapon::Tick(float DeltaTime)
@@ -204,6 +206,14 @@ void ACWeapon::End_Fire()
 
 void ACWeapon::OnFiring()
 {
+	if(CurrMagazineCount <= 0)
+	{
+		if(CanReload()) Reload();
+		return;
+	}
+
+	CurrMagazineCount--;
+
 	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(Owner);
 	FVector direction = camera->GetForwardVector();
 	FTransform transform = camera->GetComponentToWorld();
@@ -343,4 +353,48 @@ void ACWeapon::OnAiming(float Output)
 {
 	UCameraComponent* camera = CHelpers::GetComponent<UCameraComponent>(Owner);
 	camera->FieldOfView = FMath::Lerp<float>(AimData.FieldOfView, BaseData.FieldOfView, Output);
+}
+
+bool ACWeapon::CanReload()
+{
+	bool b = false;
+	b |= bEquipping;
+	b |= bReload;
+
+	return !b;
+}
+
+void ACWeapon::Reload()
+{
+	bReload = true;
+
+	End_Aim();
+	End_Fire();
+
+	if(!!ReloadMontage)
+		Owner->PlayAnimMontage(ReloadMontage, ReloadMontage_PlayRate);
+
+}
+
+void ACWeapon::Eject_Magazine()
+{
+	if(MagazineBoneName.IsValid())
+		Mesh->HideBoneByName(MagazineBoneName, EPhysBodyOp::PBO_None);
+}
+
+void ACWeapon::Spawn_Magazine()
+{
+}
+
+void ACWeapon::Load_Magazine()
+{
+	CurrMagazineCount = MaxMagazineCount;
+
+	if(MagazineBoneName.IsValid())
+		Mesh->UnHideBoneByName(MagazineBoneName);
+}
+
+void ACWeapon::End_Reload()
+{
+	bReload = false;
 }

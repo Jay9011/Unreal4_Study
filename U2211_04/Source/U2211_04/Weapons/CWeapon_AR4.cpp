@@ -54,4 +54,13 @@ ACWeapon_AR4::ACWeapon_AR4()
 		CHelpers::GetClass<UCUserWidget_CrossHair>(&CrossHairClass, "WidgetBlueprint'/Game/Widgets/WB_CrossHair.WB_CrossHair_C'");
 
 	}
+
+	// Magazine
+	{
+		MaxMagazineCount = 30;
+		CHelpers::GetAsset<UAnimMontage>(&ReloadMontage, "AnimMontage'/Game/Character/Animations/Rifile_Reload_Montage.Rifile_Reload_Montage'");
+		ReloadMontage_PlayRate = 1.5f;
+		MagazineBoneName = "b_gun_mag";
+
+	}
 }

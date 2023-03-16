@@ -10,7 +10,6 @@ UCWeaponComponent::UCWeaponComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	CHelpers::GetClass<UCUserWidget_HUD>(&HUDClass, "WidgetBlueprint'/Game/Widgets/WB_HUD.WB_HUD_C'");
-
 }
 
 void UCWeaponComponent::BeginPlay()
@@ -27,14 +26,14 @@ void UCWeaponComponent::BeginPlay()
 
 	for (TSubclassOf<ACWeapon> weaponClass : WeaponClasses)
 	{
-		if(!!weaponClass)
+		if (!!weaponClass)
 		{
 			ACWeapon* weapon = Owner->GetWorld()->SpawnActor<ACWeapon>(weaponClass, params);
 			Weapons.Add(weapon);
-		}///if(!!weaponClass)
-	}///for(TSubclassOf<ACWeapon> weaponClass : WeaponClasses)
+		} ///if(!!weaponClass)
+	}     ///for(TSubclassOf<ACWeapon> weaponClass : WeaponClasses)
 
-	if(!!HUDClass)
+	if (!!HUDClass)
 	{
 		HUD = CreateWidget<UCUserWidget_HUD, APlayerController>(Owner->GetController<APlayerController>(), HUDClass);
 		HUD->AddToViewport();
@@ -48,9 +47,14 @@ void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 
 	if (GetCurrWeapon())
 	{
-		if(!!HUD)
+		if (!!HUD)
 		{
 			GetCurrWeapon()->IsAutoFire() ? HUD->OnAutoFire() : HUD->OffAutoFire();
+
+			uint8 currCount = GetCurrWeapon()->GetCurrMagazineCount();
+			uint8 maxCount = GetCurrWeapon()->GetMaxMagazineCount();
+
+			HUD->UpdateMagazine(currCount, maxCount);
 		}
 	}
 }
@@ -94,7 +98,6 @@ void UCWeaponComponent::Begin_Fire()
 	CheckFalse(GetCurrWeapon()->CanFire())
 
 	GetCurrWeapon()->Begin_Fire();
-
 }
 
 void UCWeaponComponent::End_Fire()
@@ -126,13 +129,45 @@ void UCWeaponComponent::ToggleAutoFire()
 	GetCurrWeapon()->ToggleAutoFire();
 }
 
+void UCWeaponComponent::Reload()
+{
+	CheckNull(GetCurrWeapon())
+	CheckFalse(GetCurrWeapon()->CanReload())
+
+	GetCurrWeapon()->Reload();
+}
+
+void UCWeaponComponent::Eject_Magazine()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->Eject_Magazine();
+}
+
+void UCWeaponComponent::Spawn_Magazine()
+{
+}
+
+void UCWeaponComponent::Load_Magazine()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->Load_Magazine();
+}
+
+void UCWeaponComponent::End_Reload()
+{
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->End_Reload();
+}
+
 ACWeapon* UCWeaponComponent::GetCurrWeapon()
 {
 	CheckTrueResult(IsUnarmedMode(), nullptr)
 
 	return Weapons[static_cast<int32>(Type)];
 }
-
 
 void UCWeaponComponent::SetUnarmedMode()
 {
@@ -141,14 +176,13 @@ void UCWeaponComponent::SetUnarmedMode()
 	GetCurrWeapon()->Unequip();
 	ChangeType(EWeaponType::Max);
 
-	if(!!HUD)
+	if (!!HUD)
 		HUD->SetVisibility(ESlateVisibility::Collapsed);
 }
 
 void UCWeaponComponent::SetAR4Mode()
 {
 	SetMode(EWeaponType::AR4);
-
 }
 
 void UCWeaponComponent::SetMode(EWeaponType InType)
@@ -159,7 +193,7 @@ void UCWeaponComponent::SetMode(EWeaponType InType)
 
 		return;
 	}
-	else if(IsUnarmedMode() == false)
+	else if (IsUnarmedMode() == false)
 	{
 		CheckFalse(GetCurrWeapon()->CanUnequip())
 		GetCurrWeapon()->Unequip();
@@ -174,7 +208,7 @@ void UCWeaponComponent::SetMode(EWeaponType InType)
 
 	ChangeType(InType);
 
-	if(!!HUD)
+	if (!!HUD)
 		HUD->SetVisibility(ESlateVisibility::HitTestInvisible);
 }
 
@@ -185,6 +219,4 @@ void UCWeaponComponent::ChangeType(EWeaponType InType)
 
 	if (OnWeaponTypeChanged.IsBound())
 		OnWeaponTypeChanged.Broadcast(prevType, InType);
-
 }
-
