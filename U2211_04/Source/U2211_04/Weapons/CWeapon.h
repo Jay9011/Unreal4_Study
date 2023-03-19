@@ -115,7 +115,13 @@ protected:
 	float ReloadMontage_PlayRate;
 
 	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	TSubclassOf<class ACMagazine> MagazineClass;
+
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
 	FName MagazineBoneName;
+
+	UPROPERTY(EditDefaultsOnly, Category="Magazine")
+	FName MagazineSocketName;
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -210,4 +216,8 @@ private:
 
 private:
 	uint8 CurrMagazineCount;
+
+private:
+	class ACMagazine* Magazine;
+
 };

@@ -146,6 +146,9 @@ void UCWeaponComponent::Eject_Magazine()
 
 void UCWeaponComponent::Spawn_Magazine()
 {
+	CheckNull(GetCurrWeapon())
+
+	GetCurrWeapon()->Spawn_Magazine();
 }
 
 void UCWeaponComponent::Load_Magazine()

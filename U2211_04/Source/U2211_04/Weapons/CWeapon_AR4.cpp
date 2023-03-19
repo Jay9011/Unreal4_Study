@@ -1,6 +1,7 @@
 #include "Weapons/CWeapon_AR4.h"
 
 #include "Global.h"
+#include "CMagazine.h"
 #include "Animation/AnimMontage.h"
 #include "Camera/CameraShake.h"
 #include "Widget/CUserWidget_CrossHair.h"
@@ -61,6 +62,7 @@ ACWeapon_AR4::ACWeapon_AR4()
 		CHelpers::GetAsset<UAnimMontage>(&ReloadMontage, "AnimMontage'/Game/Character/Animations/Rifile_Reload_Montage.Rifile_Reload_Montage'");
 		ReloadMontage_PlayRate = 1.5f;
 		MagazineBoneName = "b_gun_mag";
-
+		MagazineSocketName = "Rifle_Magazine";
+		CHelpers::GetClass<ACMagazine>(&MagazineClass, "Blueprint'/Game/Weapons/BP_CMagazine_AR4.BP_CMagazine_AR4_C'");
 	}
 }

@@ -2,6 +2,7 @@
 
 #include "Global.h"
 #include "CBullet.h"
+#include "CMagazine.h"
 #include "Camera/CameraComponent.h"
 #include "Characters/CPlayer.h"
 #include "Components/DecalComponent.h"
@@ -72,8 +73,7 @@ void ACWeapon::BeginPlay()
 	Owner = Cast<ACPlayer>(GetOwner());
 
 	if (HolsterSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
-						  HolsterSocketName);
+		CHelpers::AttachTo(this, Owner->GetMesh(), HolsterSocketName);
 
 
 	BaseData.SetDataByNoneCurve(Owner);
@@ -139,8 +139,7 @@ void ACWeapon::Equip()
 void ACWeapon::Begin_Equip()
 {
 	if (RightHandSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
-						  RightHandSocketName);
+		CHelpers::AttachTo(this, Owner->GetMesh(), RightHandSocketName);
 }
 
 void ACWeapon::End_Equip()
@@ -164,8 +163,7 @@ bool ACWeapon::CanUnequip()
 void ACWeapon::Unequip()
 {
 	if (HolsterSocketName.IsValid())
-		AttachToComponent(Owner->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
-						  HolsterSocketName);
+		CHelpers::AttachTo(this, Owner->GetMesh(), HolsterSocketName);
 
 	if(!!CrossHair)
 		CrossHair->SetVisibility(ESlateVisibility::Collapsed);
@@ -380,10 +378,27 @@ void ACWeapon::Eject_Magazine()
 {
 	if(MagazineBoneName.IsValid())
 		Mesh->HideBoneByName(MagazineBoneName, EPhysBodyOp::PBO_None);
+
+	CheckNull(MagazineClass)
+
+	FTransform transform = Mesh->GetSocketTransform(MagazineBoneName);	// 계산된 World 좌표가 반환됩니다.
+	ACMagazine* magazine = GetWorld()->SpawnActorDeferred<ACMagazine>(MagazineClass, transform, nullptr, nullptr, ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
+	magazine->SetEject();
+	magazine->SetLifeSpan(5);
+	magazine->FinishSpawning(transform);
+
 }
 
 void ACWeapon::Spawn_Magazine()
 {
+	CheckNull(MagazineClass);
+
+
+	FActorSpawnParameters params;
+	params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	Magazine = GetWorld()->SpawnActor<ACMagazine>(MagazineClass, params);
+	CHelpers::AttachTo(Magazine, Owner->GetMesh(), MagazineSocketName);
 }
 
 void ACWeapon::Load_Magazine()
@@ -392,6 +407,10 @@ void ACWeapon::Load_Magazine()
 
 	if(MagazineBoneName.IsValid())
 		Mesh->UnHideBoneByName(MagazineBoneName);
+
+	if(!!Magazine)
+		Magazine->Destroy();
+
 }
 
 void ACWeapon::End_Reload()

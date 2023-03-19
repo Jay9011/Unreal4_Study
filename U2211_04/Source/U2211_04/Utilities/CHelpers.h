@@ -112,4 +112,8 @@ public:
 		return nullptr;
 	}
 
+	static void AttachTo(AActor* InActor, USceneComponent* InParent, const FName& InSocketName)
+	{
+		InActor->AttachToComponent(InParent, FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), InSocketName);
+	}
 };

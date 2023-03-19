@@ -47,9 +47,10 @@ void ACBullet::BeginPlay()
 
 void ACBullet::Shoot(const FVector& InDirection)
 {
+	SetLifeSpan(3);
+
 	Projectile->Velocity = InDirection * Projectile->InitialSpeed;
 	Projectile->SetActive(true);
-
 }
 
 void ACBullet::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
