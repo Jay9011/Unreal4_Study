@@ -1,0 +1,4 @@
+,Montage,PlayRatio,CanMove,FixedCamera,Launch
+1,AnimMontage'/Game/Resources/Anim_Montages/Sword/Sword_Attack_1_Montage.Sword_Attack_1_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
+2,AnimMontage'/Game/Resources/Anim_Montages/Sword/Sword_Attack_2_Montage.Sword_Attack_2_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
+3,AnimMontage'/Game/Resources/Anim_Montages/Sword/Sword_Attack_3_Montage.Sword_Attack_3_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
