@@ -51,11 +51,11 @@ ACPlayer::ACPlayer()
 	Backpack->SetStaticMesh(staticMesh);
 
 
-	/*CHelpers::GetAsset<USkeletalMesh>(&mesh, "");
+	CHelpers::GetAsset<USkeletalMesh>(&mesh, "SkeletalMesh'/Game/Character_Arms/Character/Mesh/SK_Mannequin_Arms.SK_Mannequin_Arms'");
 	Arms->SetSkeletalMesh(mesh);
 	Arms->SetRelativeLocation(FVector(-14.25f, -5.88f, -156.9f));
 	Arms->SetRelativeRotation(FRotator(-0.5f, -11.85f, -1.2f));
-	Arms->SetVisibility(false);*/
+	Arms->SetVisibility(false);
 }
 
 void ACPlayer::BeginPlay()

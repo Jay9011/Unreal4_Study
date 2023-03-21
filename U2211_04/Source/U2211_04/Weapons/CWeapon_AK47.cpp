@@ -11,16 +11,17 @@
 ACWeapon_AK47::ACWeapon_AK47()
 {
 	USkeletalMesh* mesh;
-	CHelpers::GetAsset<USkeletalMesh>(&mesh, "SkeletalMesh'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4.SK_AR4'");
+	CHelpers::GetAsset<USkeletalMesh>(&mesh, "SkeletalMesh'/Game/FPS_Weapon_Bundle/Weapons/Meshes/Ka47/SK_KA47.SK_KA47'");
 	Mesh->SetSkeletalMesh(mesh);
+
 
 	CHelpers::CreateComponent<UStaticMeshComponent>(this, &Sight, "Sight", Mesh, "DotSight");
 
-	/*UStaticMesh* staticMesh;
-	CHelpers::GetAsset<UStaticMesh>(&staticMesh, "");
+	UStaticMesh* staticMesh;
+	CHelpers::GetAsset<UStaticMesh>(&staticMesh, "StaticMesh'/Game/FPS_Weapon_Bundle/Weapons/Meshes/Accessories/SM_T4_Sight.SM_T4_Sight'");
 	Sight->SetStaticMesh(staticMesh);
 	Sight->SetRelativeScale3D(FVector(1.0f, 0.95f, 1.0f));
-	Sight->SetCollisionProfileName("NoCollision");*/
+	Sight->SetCollisionProfileName("NoCollision");
 
 	// Equip
 	{

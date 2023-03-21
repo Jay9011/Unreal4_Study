@@ -15,9 +15,6 @@ void UCAnimInstance::NativeBeginPlay()
 	Weapon = CHelpers::GetComponent<UCWeaponComponent>(OwnerCharacter);
 	if(!!Weapon)
 		Weapon->OnWeaponTypeChanged.AddDynamic(this, &UCAnimInstance::OnWeaponTypeChanged);
-
-	CLog::Log(OwnerCharacter->GetController());
-	CLog::Log(OwnerCharacter->InFreeCam() ? 1 : 0);
 }
 
 void UCAnimInstance::NativeUpdateAnimation(float DeltaSeconds)

@@ -5,7 +5,7 @@
 
 void UCAnimInstance_Arms::NativeBeginPlay()
 {
-	Super::NativeBeginPlay(); // 부모 함수 호출
+	Super::NativeBeginPlay();
 
 	OwnerCharacter = Cast<ACPlayer>(TryGetPawnOwner());
 	CheckNull(OwnerCharacter)
