@@ -24,6 +24,12 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class UCWeaponComponent* Weapon;
 
+	UPROPERTY(VisibleAnywhere)
+	class UStaticMeshComponent* Backpack;
+
+	UPROPERTY(VisibleAnywhere)
+	class USkeletalMeshComponent* Arms;
+
 public:
 	ACPlayer();
 

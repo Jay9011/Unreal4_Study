@@ -5,6 +5,8 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Weapons/CWeaponComponent.h"
@@ -15,6 +17,8 @@ ACPlayer::ACPlayer()
 
 	CHelpers::CreateComponent<USpringArmComponent>(this, &SpringArm, "SpringArm", GetMesh());
 	CHelpers::CreateComponent<UCameraComponent>(this, &Camera, "Camera", SpringArm);
+	CHelpers::CreateComponent<UStaticMeshComponent>(this, &Backpack, "Backpack", GetMesh(), "Backpack");
+	CHelpers::CreateComponent<USkeletalMeshComponent>(this, &Arms, "Arms", Camera);
 
 	CHelpers::CreateActorComponent<UCWeaponComponent>(this, &Weapon, "Weapon");
 
@@ -41,6 +45,17 @@ ACPlayer::ACPlayer()
 	Camera->SetRelativeLocation(FVector(-30, 0, 0));
 	Camera->bUsePawnControlRotation = false;
 
+
+	UStaticMesh* staticMesh;
+	CHelpers::GetAsset<UStaticMesh>(&staticMesh, "StaticMesh'/Game/FPS_Weapon_Bundle/Backpack/Backpack.Backpack'");
+	Backpack->SetStaticMesh(staticMesh);
+
+
+	/*CHelpers::GetAsset<USkeletalMesh>(&mesh, "");
+	Arms->SetSkeletalMesh(mesh);
+	Arms->SetRelativeLocation(FVector(-14.25f, -5.88f, -156.9f));
+	Arms->SetRelativeRotation(FRotator(-0.5f, -11.85f, -1.2f));
+	Arms->SetVisibility(false);*/
 }
 
 void ACPlayer::BeginPlay()
@@ -72,6 +87,7 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 
 	PlayerInputComponent->BindAction("AR4", EInputEvent::IE_Pressed, Weapon, &UCWeaponComponent::SetAR4Mode);
+	PlayerInputComponent->BindAction("AK47", EInputEvent::IE_Pressed, Weapon, &UCWeaponComponent::SetAK47Mode);
 
 	PlayerInputComponent->BindAction("Fire", EInputEvent::IE_Pressed, Weapon, &UCWeaponComponent::Begin_Fire);
 	PlayerInputComponent->BindAction("Fire", EInputEvent::IE_Released, Weapon, &UCWeaponComponent::End_Fire);

@@ -32,7 +32,7 @@ ACWeapon_AR4::ACWeapon_AR4()
 		AimData.SocketOffset = FVector(0, 55, 10);
 		AimData.FieldOfView = 65;
 
-		LeftHandLocation = FVector(-30.0f, 15.5f, 7.0f);
+		LeftHandLocation = FVector(-32.5f, 15.5f, 7.0f);
 	}
 
 	// Fire

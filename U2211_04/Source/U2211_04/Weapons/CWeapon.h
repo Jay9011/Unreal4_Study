@@ -192,7 +192,7 @@ public:
 	void Load_Magazine();
 	void End_Reload();
 
-private:
+protected:
 	class ACPlayer* Owner;
 
 private:
