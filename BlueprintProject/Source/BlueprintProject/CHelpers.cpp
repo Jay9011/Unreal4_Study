@@ -10,10 +10,3 @@ void UCHelpers::DebugPrintString(const FString& InString, int InKey, float InDur
 {
 	GEngine->AddOnScreenDebugMessage(InKey, InDuration, InColor.ToFColor(false), InString, InNewerOnTop);
 }
-
-#if DEBUG_LINE
-void Test()
-{
-	UKismetMathLibrary::RInterpTo()
-}
-#endif
