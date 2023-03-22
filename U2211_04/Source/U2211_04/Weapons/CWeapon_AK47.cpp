@@ -2,11 +2,13 @@
 
 #include "Global.h"
 #include "CMagazine.h"
+#include "CWeaponComponent.h"
 #include "Animation/AnimMontage.h"
 #include "Camera/CameraShake.h"
 #include "Characters/CPlayer.h"
 #include "Widget/CUserWidget_CrossHair.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 
 ACWeapon_AK47::ACWeapon_AK47()
 {
@@ -41,7 +43,7 @@ ACWeapon_AK47::ACWeapon_AK47()
 		BaseData.FieldOfView = 90;
 
 		AimData.TargetArmLength = 30;
-		AimData.SocketOffset = FVector(-55, 0, 10);
+		AimData.SocketOffset = FVector(-55, 50, 10);
 		AimData.FieldOfView = 55;
 
 		LeftHandLocation = FVector(-35.0f, 15.5f, 4.0f);
@@ -76,12 +78,20 @@ ACWeapon_AK47::ACWeapon_AK47()
 		MagazineSocketName = "Rifle_Magazine";
 		CHelpers::GetClass<ACMagazine>(&MagazineClass, "Blueprint'/Game/Weapons/BP_CMagazine_AR4.BP_CMagazine_AR4_C'");
 	}
+
+	//Arms
+	{
+		ArmsMeshTransform.SetLocation(FVector(-14.25f, -5.85f, -156.935f));
+		ArmsMeshTransform.SetRotation(FQuat(FRotator(-0.5f, -11.85f, -1.2f)));
+	}
 }
 
 void ACWeapon_AK47::Begin_Equip()
 {
 	if (LeftHandSocketName.IsValid())
 		CHelpers::AttachTo(this, Owner->GetMesh(), LeftHandSocketName);
+
+	Owner->GetArms()->SetRelativeTransform(ArmsMeshTransform);
 }
 
 void ACWeapon_AK47::End_Equip()
@@ -89,4 +99,36 @@ void ACWeapon_AK47::End_Equip()
 	Super::Begin_Equip();
 	Super::End_Equip();
 
+}
+
+void ACWeapon_AK47::Begin_Aim()
+{
+	Super::Begin_Aim();
+
+	if(!!CrossHair)
+		CrossHair->SetVisibility(ESlateVisibility::Collapsed);
+
+	Owner->GetMesh()->SetVisibility(false);
+	Owner->GetBackpack()->SetVisibility(false);
+	Owner->GetArms()->SetVisibility(true);
+
+	CHelpers::AttachTo(this, Owner->GetArms(), RightHandSocketName);
+
+	CHelpers::GetComponent<UCWeaponComponent>(Owner)->OnWeaponAim_Arms_Begin.Broadcast(this);
+}
+
+void ACWeapon_AK47::End_Aim()
+{
+	Super::End_Aim();
+
+	if(!!CrossHair)
+		CrossHair->SetVisibility(ESlateVisibility::HitTestInvisible);
+
+	Owner->GetMesh()->SetVisibility(true);
+	Owner->GetBackpack()->SetVisibility(true);
+	Owner->GetArms()->SetVisibility(false);
+
+	CHelpers::AttachTo(this, Owner->GetMesh(), RightHandSocketName);
+
+	CHelpers::GetComponent<UCWeaponComponent>(Owner)->OnWeaponAim_Arms_End.Broadcast();
 }

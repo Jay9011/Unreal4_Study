@@ -12,6 +12,8 @@ enum class EWeaponType : uint8
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FWeaponTypeChanged, EWeaponType, InPrevType, EWeaponType, InNewType);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FWeaponAim_Arms_Begin, class ACWeapon*, InThisWeapon);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWeaponAim_Arms_End);
 
 UCLASS(ClassGroup=(Weapon))
 class U2211_04_API UCWeaponComponent : public UActorComponent
@@ -49,9 +51,6 @@ protected:
 private:
 	class ACWeapon* GetCurrWeapon();
 
-public:
-	FWeaponTypeChanged OnWeaponTypeChanged;
-
 public:	
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -79,6 +78,19 @@ public:
 	void Spawn_Magazine();
 	void Load_Magazine();
 	void End_Reload();
+
+	
+private:
+	UFUNCTION()
+	void OnAim_Arms_Begin(class ACWeapon* InThisWeapon);
+
+	UFUNCTION()
+	void OnAim_Arms_End();
+
+public:
+	FWeaponTypeChanged OnWeaponTypeChanged;
+	FWeaponAim_Arms_Begin OnWeaponAim_Arms_Begin;
+	FWeaponAim_Arms_End OnWeaponAim_Arms_End;
 
 private:
 	EWeaponType Type = EWeaponType::Max;

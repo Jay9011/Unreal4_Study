@@ -1,6 +1,7 @@
 #include "CPlayer.h"
 
 #include "CAnimInstance.h"
+#include "CAnimInstance_Arms.h"
 #include "Global.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -53,9 +54,13 @@ ACPlayer::ACPlayer()
 
 	CHelpers::GetAsset<USkeletalMesh>(&mesh, "SkeletalMesh'/Game/Character_Arms/Character/Mesh/SK_Mannequin_Arms.SK_Mannequin_Arms'");
 	Arms->SetSkeletalMesh(mesh);
-	Arms->SetRelativeLocation(FVector(-14.25f, -5.88f, -156.9f));
-	Arms->SetRelativeRotation(FRotator(-0.5f, -11.85f, -1.2f));
 	Arms->SetVisibility(false);
+
+	 
+	TSubclassOf<UCAnimInstance_Arms> armsAnimInstance;
+	CHelpers::GetClass<UCAnimInstance_Arms>(&armsAnimInstance, "AnimBlueprint'/Game/ABP_Character_Arms.ABP_Character_Arms_C'");
+	Arms->SetAnimClass(armsAnimInstance);
+
 }
 
 void ACPlayer::BeginPlay()

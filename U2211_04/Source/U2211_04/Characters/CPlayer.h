@@ -20,6 +20,9 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* Camera;
 
+	UPROPERTY(VisibleAnywhere)
+	class USkeletalMeshComponent* Arms;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class UCWeaponComponent* Weapon;
@@ -27,9 +30,10 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* Backpack;
 
-	UPROPERTY(VisibleAnywhere)
-	class USkeletalMeshComponent* Arms;
-
+public:
+	FORCEINLINE class UStaticMeshComponent* GetBackpack() { return Backpack; }
+	FORCEINLINE class USkeletalMeshComponent* GetArms() { return Arms; }
+	
 public:
 	ACPlayer();
 

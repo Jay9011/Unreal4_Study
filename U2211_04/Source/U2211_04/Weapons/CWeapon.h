@@ -122,6 +122,10 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category="Magazine")
 	FName MagazineSocketName;
+	
+protected:
+	UPROPERTY(EditDefaultsOnly, Category="Arms")
+	FTransform ArmsMeshTransform;
 
 private:
 	UPROPERTY(VisibleAnywhere)

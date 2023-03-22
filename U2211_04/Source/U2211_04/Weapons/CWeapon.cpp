@@ -269,7 +269,7 @@ void ACWeapon::OnFiring()
 			controller->PlayerCameraManager->StartCameraShake(CameraShakeClass);
 	}
 
-	Owner->AddControllerPitchInput(-RecoilRate * UKismetMathLibrary::RandomFloatInRange(0.8f, 1.2f));
+	// Owner->AddControllerPitchInput(-RecoilRate * UKismetMathLibrary::RandomFloatInRange(0.8f, 1.2f));
 
 	if (CurrSpreadRadius <= 1.0f)
 	{
