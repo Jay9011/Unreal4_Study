@@ -83,6 +83,13 @@ FVector UCWeaponComponent::GetLeftHandLocation()
 	return GetCurrWeapon()->GetLeftHandLocation();
 }
 
+FTransform UCWeaponComponent::GetArmsLeftHandTransform()
+{
+	CheckNullResult(GetCurrWeapon(), FTransform())
+
+	return GetCurrWeapon()->GetArmsLeftHandTransform();
+}
+
 void UCWeaponComponent::Begin_Equip()
 {
 	CheckNull(GetCurrWeapon())
@@ -211,6 +218,11 @@ void UCWeaponComponent::SetAR4Mode()
 void UCWeaponComponent::SetAK47Mode()
 {
 	SetMode(EWeaponType::AK47);
+}
+
+void UCWeaponComponent::SetPistolMode()
+{
+	SetMode(EWeaponType::Pistol);
 }
 
 void UCWeaponComponent::SetMode(EWeaponType InType)

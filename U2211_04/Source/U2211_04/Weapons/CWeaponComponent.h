@@ -40,6 +40,7 @@ public:
 	void SetUnarmedMode();
 	void SetAR4Mode();
 	void SetAK47Mode();
+	void SetPistolMode();
 
 private:
 	void SetMode(EWeaponType InType);
@@ -58,6 +59,7 @@ public:
 	bool IsInAim();
 	bool IsFiring();
 	FVector GetLeftHandLocation();
+	FTransform GetArmsLeftHandTransform();
 
 public:
 	void Begin_Equip();

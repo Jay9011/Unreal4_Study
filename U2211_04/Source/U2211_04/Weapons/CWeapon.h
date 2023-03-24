@@ -127,6 +127,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Arms")
 	FTransform ArmsMeshTransform;
 
+	UPROPERTY(EditDefaultsOnly, Category="Arms")
+	FTransform ArmsLeftHandTransform;
+
 private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
@@ -147,6 +150,8 @@ public:
 
 	FORCEINLINE uint8 GetCurrMagazineCount() { return CurrMagazineCount; }
 	FORCEINLINE uint8 GetMaxMagazineCount() { return MaxMagazineCount; }
+
+	FORCEINLINE FTransform GetArmsLeftHandTransform() { return ArmsLeftHandTransform; }
 public:
 	ACWeapon();
 

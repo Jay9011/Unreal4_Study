@@ -19,6 +19,8 @@ void UCAnimInstance_Arms::NativeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeUpdateAnimation(DeltaSeconds);
 	CheckNull(OwnerCharacter)
+
+	ArmsLeftHandTransform = Weapon->GetArmsLeftHandTransform();
 }
 
 void UCAnimInstance_Arms::OnWeaponTypeChanged(EWeaponType InPrevType, EWeaponType InNewType)

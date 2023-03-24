@@ -51,13 +51,13 @@ ACWeapon_AK47::ACWeapon_AK47()
 
 	// Fire
 	{
-		AutoFireInterval = 0.15f;
+		AutoFireInterval = 0.175f;
 	}
 
 	// Recoil
 	{
 		CHelpers::GetClass<UMatineeCameraShake>(&CameraShakeClass,
-												"Blueprint'/Game/Weapons/BP_CameraShake_AR4.BP_CameraShake_AR4_C'");
+												"Blueprint'/Game/Weapons/BP_CameraShake_AK47.BP_CameraShake_AK47_C'");
 		RecoilAngle = 0.75f;
 		RecoilRate = 0.05f;
 		SpreadSpeed = 2.0f;
@@ -76,13 +76,16 @@ ACWeapon_AK47::ACWeapon_AK47()
 		ReloadMontage_PlayRate = 1.5f;
 		MagazineBoneName = "b_gun_mag";
 		MagazineSocketName = "Rifle_Magazine";
-		CHelpers::GetClass<ACMagazine>(&MagazineClass, "Blueprint'/Game/Weapons/BP_CMagazine_AR4.BP_CMagazine_AR4_C'");
+		CHelpers::GetClass<ACMagazine>(&MagazineClass, "Blueprint'/Game/Weapons/BP_CMagazine_AK47.BP_CMagazine_AK47_C'");
 	}
 
 	//Arms
 	{
 		ArmsMeshTransform.SetLocation(FVector(-14.25f, -5.85f, -156.935f));
 		ArmsMeshTransform.SetRotation(FQuat(FRotator(-0.5f, -11.85f, -1.2f)));
+
+		ArmsLeftHandTransform.SetLocation(FVector(-33, 11, -1.5f));
+		ArmsLeftHandTransform.SetRotation(FQuat(FRotator(-4, -138, 77)));
 	}
 }
 
