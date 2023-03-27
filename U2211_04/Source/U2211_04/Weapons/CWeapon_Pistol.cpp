@@ -38,7 +38,7 @@ ACWeapon_Pistol::ACWeapon_Pistol()
 		AimData.SocketOffset = FVector(-55, 50, 10);
 		AimData.FieldOfView = 55;
 
-		LeftHandLocation = FVector(0.0f, 15.0f, 0.0f);
+		LeftHandLocation = FVector(0.0f, 12.5f, 0.0f);
 	}
 
 	// Fire

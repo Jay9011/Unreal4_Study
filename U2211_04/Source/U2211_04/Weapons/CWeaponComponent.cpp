@@ -58,6 +58,7 @@ void UCWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 			uint8 maxCount = GetCurrWeapon()->GetMaxMagazineCount();
 
 			HUD->UpdateMagazine(currCount, maxCount);
+			HUD->UpdateWeaponType(Type);
 		}
 	}
 }
