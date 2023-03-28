@@ -1,7 +1,7 @@
-,Damage,HitType,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
-1,5,MidiumDown,1,FALSE,"(X=100,Y=0)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-2,5,MidiumFront,1,FALSE,"(X=100,Y=0)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-3,10,UpperNormal,1,FALSE,"(X=0,Y=800)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-4,10,UpperNormal,1,FALSE,"(X=0,Y=1000)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-5,20,UpperNormal,1,FALSE,"(X=0,Y=1500)","(X=0,Y=1500)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-6,20,UpperNormal,1,FALSE,"(X=0,Y=2000)","(X=0,Y=2000)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+,Damage,HitType,GuardBreakable,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
+1,5,MidiumDown,TRUE,1,FALSE,"(X=100,Y=0)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+2,5,MidiumFront,TRUE,1,FALSE,"(X=100,Y=0)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+3,10,UpperNormal,TRUE,1,FALSE,"(X=0,Y=800)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+4,10,UpperNormal,TRUE,1,FALSE,"(X=0,Y=1000)","(X=100,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+5,20,UpperNormal,TRUE,1,FALSE,"(X=0,Y=1500)","(X=0,Y=1500)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+6,20,UpperNormal,TRUE,1,FALSE,"(X=0,Y=2000)","(X=0,Y=2000)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"

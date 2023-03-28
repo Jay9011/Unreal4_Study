@@ -1,7 +1,7 @@
-,Damage,HitType,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
-DownAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-AirDashAttack,5,UpperNormal,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-AirFallingAttack,5,FrontDownSmall,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-DodgeAttack,5,UpperNormal,1,FALSE,"(X=500,Y=300)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-DodgeAttack_Slash,5,UpperNormal,1,FALSE,"(X=500,Y=300)","(X=0,Y=0)",0,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
-ParryingAttack,5,MidiumDown,1,FALSE,"(X=100,Y=0)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+,Damage,HitType,GuardBreakable,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
+DownAttack,5,FrontDownSmall,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+AirDashAttack,5,UpperNormal,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+AirFallingAttack,5,FrontDownSmall,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+DodgeAttack,5,UpperNormal,TRUE,1,FALSE,"(X=500,Y=300)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+DodgeAttack_Slash,5,UpperNormal,TRUE,1,FALSE,"(X=500,Y=300)","(X=0,Y=0)",0,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+ParryingAttack,5,MidiumDown,TRUE,1,FALSE,"(X=100,Y=0)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
