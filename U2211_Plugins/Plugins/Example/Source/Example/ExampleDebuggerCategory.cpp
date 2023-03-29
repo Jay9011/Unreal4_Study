@@ -1,5 +1,7 @@
 #include "ExampleDebuggerCategory.h"
 
+#include "CanvasItem.h"
+
 #include "DrawDebugHelpers.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
@@ -77,4 +79,32 @@ void FExampleDebuggerCategory::DrawData(APlayerController* OwnerPC, FGameplayDeb
 	FVector end = PlayerPawnData.Location + PlayerPawnData.Forward * TraceDistance;
 
 	DrawDebugLine(OwnerPC->GetWorld(), start, end, FColor::Red);
+
+
+	FCanvasTileItem item(FVector2D(10, 10), FVector2D(300, 215), FLinearColor(0, 0, 0, 0.2f));
+	item.BlendMode = ESimpleElementBlendMode::SE_BLEND_AlphaBlend;
+	CanvasContext.DrawItem(item, CanvasContext.CursorX, CanvasContext.CursorY);
+
+	CanvasContext.Printf(FColor::Green, L"  -- Player Pawn --");
+	CanvasContext.Printf(FColor::White, L"  Name : %s", *PlayerPawnData.Name);
+	CanvasContext.Printf(FColor::White, L"  Location : %s", *PlayerPawnData.Location.ToString());
+	CanvasContext.Printf(FColor::White, L"  Forward : %s", *PlayerPawnData.Forward.ToString());
+	CanvasContext.Printf(FColor::White, L"");
+
+	if (ForwardActorData.bDraw)
+	{
+		CanvasContext.Printf(FColor::Green, L"  -- Forward Actor --");
+		CanvasContext.Printf(FColor::White, L"  Name : %s", *ForwardActorData.Name);
+		CanvasContext.Printf(FColor::White, L"  Location : %s", *ForwardActorData.Location.ToString());
+		CanvasContext.Printf(FColor::White, L"  Forward : %s", *ForwardActorData.Forward.ToString());
+		CanvasContext.Printf(FColor::White, L"");
+	}
+
+	if (DebugActorData.bDraw)
+	{
+		CanvasContext.Printf(FColor::Green, L"  -- Select Actor --");
+		CanvasContext.Printf(FColor::White, L"  Name : %s", *DebugActorData.Name);
+		CanvasContext.Printf(FColor::White, L"  Location : %s", *DebugActorData.Location.ToString());
+		CanvasContext.Printf(FColor::White, L"  Forward : %s", *DebugActorData.Forward.ToString());
+	}
 }

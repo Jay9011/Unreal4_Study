@@ -1,16 +1,8 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
-C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleDebuggerCategory.cpp
+C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleModule.cpp
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleModule.h
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleDebuggerCategory.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerTypes.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerAddonBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleModule.cpp
-C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleModule.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h

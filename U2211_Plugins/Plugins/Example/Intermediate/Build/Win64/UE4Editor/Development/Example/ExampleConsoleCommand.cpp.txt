@@ -1,0 +1,2 @@
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleConsoleCommand.h
