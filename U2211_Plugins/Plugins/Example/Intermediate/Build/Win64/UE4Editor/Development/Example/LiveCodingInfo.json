@@ -2,9 +2,9 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Example.cpp.obj": [
-			"ExampleModule.cpp.obj",
+			"ExampleDebuggerCategory.cpp.obj",
 			"ExampleConsoleCommand.cpp.obj",
-			"ExampleDebuggerCategory.cpp.obj"
+			"ExampleModule.cpp.obj"
 		]
 	}
 }

@@ -1,8 +1,20 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
-C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleModule.cpp
-C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleModule.h
-C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\ExampleDebuggerCategory.h
+C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleDebuggerCategory.cpp
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleDebuggerCategory.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerTypes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerAddonBase.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h
+c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerTypes.h
+c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerAddonBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\CanvasItem.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/Font.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/FontImportOptions.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\FontImportOptions.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Fonts/FontProviderInterface.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\SlateCore\FontProviderInterface.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Font.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h

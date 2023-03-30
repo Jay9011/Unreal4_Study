@@ -1,0 +1,8 @@
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleModule.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleConsoleCommand.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleDebuggerCategory.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
+c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerTypes.h
+c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerAddonBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h
