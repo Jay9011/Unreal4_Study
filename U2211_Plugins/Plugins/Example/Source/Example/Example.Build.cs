@@ -13,6 +13,8 @@ public class Example : ModuleRules
 
         PublicDependencyModuleNames.Add("Core");
 
+        PrivateDependencyModuleNames.Add("U2211_Plugins");
+
         PrivateDependencyModuleNames.Add("CoreUObject");
         PrivateDependencyModuleNames.Add("Engine");
         PrivateDependencyModuleNames.Add("Slate");

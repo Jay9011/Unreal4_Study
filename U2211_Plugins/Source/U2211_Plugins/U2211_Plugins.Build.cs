@@ -7,7 +7,15 @@ public class U2211_Plugins : ModuleRules
 	public U2211_Plugins(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "NavigationSystem", "AIModule" });
+        
+        PublicIncludePaths.Add(ModuleDirectory);
+        
+        PublicDependencyModuleNames.Add("Core");
+        PublicDependencyModuleNames.Add("CoreUObject");
+        PublicDependencyModuleNames.Add("Engine");
+        PublicDependencyModuleNames.Add("InputCore");
+        PublicDependencyModuleNames.Add("HeadMountedDisplay");
+        PublicDependencyModuleNames.Add("NavigationSystem");
+        PublicDependencyModuleNames.Add("AIModule");
     }
 }
