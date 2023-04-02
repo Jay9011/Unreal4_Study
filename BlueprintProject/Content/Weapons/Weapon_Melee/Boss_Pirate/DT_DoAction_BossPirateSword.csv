@@ -1,0 +1,4 @@
+,Montage,PlayRatio,CanMove,FixedCamera,Launch
+1,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Attack/Boss_Pirate_Combo1_Montage.Boss_Pirate_Combo1_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
+2,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Attack/Boss_Pirate_Combo2_Montage.Boss_Pirate_Combo2_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
+3,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Attack/Boss_Pirate_Combo3_Montage.Boss_Pirate_Combo3_Montage',1,FALSE,FALSE,"(X=0,Y=0)"
