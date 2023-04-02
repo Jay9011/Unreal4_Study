@@ -1,0 +1,5 @@
+,Damage,HitType,GuardBreakable,PlayRatio,CanMove,Launch,AttackerLaunch,HitStop,Sound,ShakeClass,Effect,EffectLocation,EffectScale
+ComboAttack1_01,5,SmallRight,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+ComboAttack1_02,5,SmallLeft,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+ComboAttack1_03,5,MidiumFront,FALSE,1,FALSE,"(X=0,Y=0)","(X=0,Y=0)",0.05,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
+ComboAttack1_04,5,MidiumDown,FALSE,1,FALSE,"(X=500,Y=300)","(X=0,Y=0)",0.07,,,,"(X=0,Y=0,Z=0)","(X=1,Y=1,Z=1)"
