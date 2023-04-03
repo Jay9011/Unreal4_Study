@@ -11,4 +11,11 @@ public:
 
 	void CustomizeDetails(IDetailLayoutBuilder& DetailBuilder) override;
 
+
+private:
+	FReply OnClicked_Paint();
+	FReply OnClicked_SaveMesh();
+
+
+	TArray<TWeakObjectPtr<UObject>> Objects;
 };

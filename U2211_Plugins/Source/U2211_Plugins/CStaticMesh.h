@@ -22,4 +22,10 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+
+#if WITH_EDITOR
+public:
+	void Paint();
+
+#endif
 };

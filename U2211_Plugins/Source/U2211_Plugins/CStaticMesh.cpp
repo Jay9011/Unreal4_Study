@@ -23,3 +23,15 @@ void ACStaticMesh::BeginPlay()
 	
 }
 
+#if WITH_EDITOR
+void ACStaticMesh::Paint()
+{
+	for(const FVectorParameterValue& value : Material->VectorParameterValues)
+	{
+		if(value.ParameterInfo.Name.Compare("Color") == 0)
+			Material->SetVectorParameterValueEditorOnly(value.ParameterInfo, FLinearColor::MakeRandomColor());
+	}
+}
+
+
+#endif
