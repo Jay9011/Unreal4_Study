@@ -1,9 +1,11 @@
-﻿[진행 중]
+﻿윤종섭_포트폴리오(BP)_25
+
+﻿https://youtu.be/WvGP0jGcsvM
+
+[진행 중]
 4. Boss
- 1) Boss 디자인
- 2) Boss 무기 추가
- 3) Boss 기본 AI
- 4) Boss AI 패턴
+ 3) Boss 공격 패턴
+ 2) Boss 기본 AI
  
  
 [예정]
@@ -30,3 +32,5 @@
  2) AI 공격
  3) 다운 상태 처리
  4) 방어, 방어 해제
+4. Boss
+ 1) Boss 무기 추가
