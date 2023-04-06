@@ -12,6 +12,22 @@ TSharedRef<IDetailCustomization> FStaticMesh_Detail::MakeInstance()
 
 void FStaticMesh_Detail::CustomizeDetails(IDetailLayoutBuilder& DetailBuilder)
 {
+	IDetailCategoryBuilder& actor = DetailBuilder.EditCategory("Actor");
+	// actor.SetCategoryVisibility(false);
+
+	// IDetailCategoryBuilder& rendering = DetailBuilder.EditCategory("Rendering");
+
+	TArray<TSharedRef<IPropertyHandle>> handles;
+	actor.GetDefaultProperties(handles);
+
+	for(TSharedRef<IPropertyHandle> handle : handles)
+	{
+		// GLog->Log(handle->GetProperty()->GetName());
+		// GLog->Log(handle->GetProperty()->GetFullName());
+		if(handle->GetProperty()->GetName().Contains("bCanBeDamaged"))
+			DetailBuilder.HideProperty(handle);
+	}
+
 	IDetailCategoryBuilder& mesh = DetailBuilder.EditCategory("Mesh");
 
 	mesh.AddCustomRow(FText::FromString("Color"))
@@ -75,15 +91,35 @@ FReply FStaticMesh_Detail::OnClicked_Paint()
 
 FReply FStaticMesh_Detail::OnClicked_SaveMesh()
 {
-	if(FApp::IsGame())
+	if(Objects[0]->GetWorld()->IsPlayInEditor())
 	{
 		FMessageDialog dialog;
-		dialog.Debugf(FText::FromString("In game mode is not working"));
+		dialog.Debugf(FText::FromString("It doesn't work in game mode"));
 
 		return FReply::Handled();
 	}
 
-	GLog->Log("Save Mesh");
+
+	TArray<ACStaticMesh*> meshActors;
+	for(TWeakObjectPtr<UObject> obj : Objects)
+	{
+		ACStaticMesh* meshActor = Cast<ACStaticMesh>(obj);
+		if(meshActor == nullptr) continue;
+
+		meshActors.Add(meshActor);
+	}
+
+	for(int32 i = 0; i < meshActors.Num(); i++)
+	{
+		UActorComponent* actorComponent = meshActors[i]->GetComponentByClass(UStaticMeshComponent::StaticClass());
+		UStaticMeshComponent* meshComponent = Cast<UStaticMeshComponent>(actorComponent);
+		if(meshComponent == nullptr) return FReply::Unhandled();
+
+		UStaticMesh* mesh = meshComponent->GetStaticMesh();
+		if(mesh == nullptr) return FReply::Unhandled();
+
+		FStaticMeshRenderData* renderData = mesh->RenderData.Get();
+	}
 
 	return FReply::Handled();
 }
