@@ -1,11 +1,11 @@
-﻿윤종섭_포트폴리오(BP)_26(영상변화없음)
+﻿윤종섭_포트폴리오(BP)_27
 
-﻿https://youtu.be/WvGP0jGcsvM
+https://youtu.be/wtMwRXiVWjs
 
 [진행 중]
 4. Boss
- 3) Boss 공격 패턴 (+스킬)
  2) Boss 기본 AI
+ 3) Boss 공격 패턴 (+스킬)
  
  
 [예정]
