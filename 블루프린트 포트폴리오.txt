@@ -1,12 +1,14 @@
-﻿윤종섭_포트폴리오(BP)_27
+﻿윤종섭_포트폴리오(BP)_29
 
-https://youtu.be/wtMwRXiVWjs
+https://youtu.be/_BdRPEUNIZg
 
 [진행 중]
 4. Boss
- 2) Boss 기본 AI
- 3) Boss 공격 패턴 (+스킬)
+ 2) Boss AI
+ 3) Boss 공격 패턴 (+추가중)
  
+5. 추가
+ 1) IK, 파크루
  
 [예정]
 2. 전투
