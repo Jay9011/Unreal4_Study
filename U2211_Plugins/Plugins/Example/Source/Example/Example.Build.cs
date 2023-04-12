@@ -6,7 +6,7 @@ public class Example : ModuleRules
 {
 	public Example(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+        PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
         PrivateIncludePaths.Add(ModuleDirectory);
 
@@ -20,5 +20,8 @@ public class Example : ModuleRules
         PrivateDependencyModuleNames.Add("Slate");
         PrivateDependencyModuleNames.Add("SlateCore");
         PrivateDependencyModuleNames.Add("GameplayDebugger");
+        PrivateDependencyModuleNames.Add("MainFrame");
+        PrivateDependencyModuleNames.Add("DesktopPlatform");
+        PrivateDependencyModuleNames.Add("EditorStyle");
 	}
 }

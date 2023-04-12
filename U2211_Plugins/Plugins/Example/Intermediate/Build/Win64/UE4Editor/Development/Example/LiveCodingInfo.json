@@ -4,6 +4,7 @@
 		"Module.Example.cpp.obj": [
 			"ExampleConsoleCommand.cpp.obj",
 			"ExampleDebuggerCategory.cpp.obj",
+			"ButtonCommand.cpp.obj",
 			"ExampleModule.cpp.obj",
 			"StaticMesh_Detail.cpp.obj"
 		]

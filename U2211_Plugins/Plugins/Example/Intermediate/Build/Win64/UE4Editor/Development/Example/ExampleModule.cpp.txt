@@ -1,12 +1,46 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleModule.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ButtonCommand.h
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Source\U2211_Plugins\CStaticMesh.h
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\UE4Editor\Inc\U2211_Plugins\CStaticMesh.generated.h
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleConsoleCommand.h
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleDebuggerCategory.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
 c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerTypes.h
 c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerAddonBase.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ILevelEditor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\Editor/UnrealEdTypes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\UnrealEdTypes.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\AssetThumbnail.h
+c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\TickableEditorObject.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Toolkits/AssetEditorToolkit.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Toolkits/BaseToolkit.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\UnrealEdMisc.h
+c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\Editor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\Editor/EditorEngine.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\Editor/Transactor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Serialization/ArchiveSerializedPropertyChain.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\Transactor.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\Settings/LevelEditorViewportSettings.h
+c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\Viewports.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\LevelEditorViewportSettings.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\TargetPlatform\Public\Interfaces/ITargetPlatform.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\TargetPlatform\Public\Interfaces/ITargetDevice.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\TargetPlatform\Public\Interfaces/TargetDeviceId.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\TargetPlatform\Public\Interfaces/ITargetPlatformManagerModule.h
+c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\PlayInEditorDataTypes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\PlayInEditorDataTypes.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\EditorSubsystem\Public\EditorSubsystem.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\EditorSubsystem\EditorSubsystem.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\EditorEngine.generated.h
+c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\Subsystems/ImportSubsystem.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\ImportSubsystem.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Subsystems/AssetEditorSubsystem.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Tools/Modes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\AssetEditorSubsystem.generated.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ViewportTypeDefinition.h
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\StaticMesh_Detail.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailCustomization.h
-C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Source\U2211_Plugins\CStaticMesh.h
-C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\UE4Editor\Inc\U2211_Plugins\CStaticMesh.generated.h

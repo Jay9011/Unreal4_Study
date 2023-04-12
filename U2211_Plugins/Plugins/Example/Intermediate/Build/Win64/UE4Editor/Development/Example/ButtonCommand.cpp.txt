@@ -1,0 +1,2 @@
+C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ButtonCommand.h

@@ -33,11 +33,14 @@
 /wd4838
 /I .
 /I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example
-/I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
+/I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\UE4Editor\Inc\U2211_Plugins
+/I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Source
+/I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Source\U2211_Plugins
 /I Runtime
-/I Runtime\CoreUObject\Public
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
+/I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
+/I Runtime\CoreUObject\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\Engine
 /I Runtime\Engine\Classes
 /I Runtime\Engine\Public
@@ -232,6 +235,11 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
+/I ..\Intermediate\Build\Win64\UE4Editor\Inc\AugmentedReality
+/I Runtime\AugmentedReality\Public
+/I ..\Intermediate\Build\Win64\UE4Editor\Inc\MRMesh
+/I Runtime\MRMesh\Public
+/I Editor\MainFrame\Public
 /I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager

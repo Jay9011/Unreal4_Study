@@ -239,6 +239,8 @@
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\MRMesh
 /I Runtime\MRMesh\Public
+/I Editor\MainFrame\Public
+/I Developer\DesktopPlatform\Public
 /I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager

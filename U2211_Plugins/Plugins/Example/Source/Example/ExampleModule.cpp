@@ -1,11 +1,12 @@
 #include "ExampleModule.h"
 
+#include "ButtonCommand.h"
+#include "CStaticMesh.h"
 #include "ExampleConsoleCommand.h"
 #include "ExampleDebuggerCategory.h"
 #include "GameplayDebugger.h"
-
+#include "LevelEditor.h"
 #include "StaticMesh_Detail.h"
-#include "CStaticMesh.h"
 
 #define LOCTEXT_NAMESPACE "ExampleModule"
 
@@ -36,6 +37,21 @@ void FExampleModule::StartupModule()
 		FPropertyEditorModule& prop = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 		prop.RegisterCustomClassLayout(ACStaticMesh::StaticClass()->GetFName(), instance);
 	}
+
+	// ToolBar
+	{
+		FButtonCommand::Register();
+
+		Extender = MakeShareable(new FExtender());
+
+		FToolBarExtensionDelegate toolbar;
+		toolbar.BindRaw(this, &FExampleModule::AddToolBar);
+
+		Extender->AddToolBarExtension("Compile", EExtensionHook::Before, FButtonCommand::Get().Command, toolbar);
+
+		FLevelEditorModule& levelEditor = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
+		levelEditor.GetToolBarExtensibilityManager()->AddExtender(Extender);
+	}
 }
 
 void FExampleModule::ShutdownModule()
@@ -45,6 +61,19 @@ void FExampleModule::ShutdownModule()
 
 	if(ConsoleCommand.IsValid())
 		ConsoleCommand.Reset();
+}
+
+void FExampleModule::AddToolBar(FToolBarBuilder& InBuilder)
+{
+	InBuilder.AddSeparator();
+	InBuilder.AddToolBarButton
+	(
+		FButtonCommand::Get().LoadMesh,
+		"LoadMesh",
+		FText::FromString("Load Mesh"),
+		FText::FromString("Load Mesh Data")
+	);
+
 }
 
 #undef LOCTEXT_NAMESPACE
