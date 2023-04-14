@@ -8,6 +8,7 @@ c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\Ex
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
 c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerTypes.h
 c:\program files\epic games\ue_4.26\engine\source\developer\gameplaydebugger\public\GameplayDebuggerAddonBase.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleStyle.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Slate\Public\Framework/Docking/LayoutService.h

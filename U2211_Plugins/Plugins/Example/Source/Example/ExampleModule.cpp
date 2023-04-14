@@ -1,9 +1,11 @@
-#include "ExampleModule.h"
+﻿#include "ExampleModule.h"
 
 #include "ButtonCommand.h"
 #include "CStaticMesh.h"
+
 #include "ExampleConsoleCommand.h"
 #include "ExampleDebuggerCategory.h"
+#include "ExampleStyle.h"
 #include "GameplayDebugger.h"
 #include "LevelEditor.h"
 #include "StaticMesh_Detail.h"
@@ -14,6 +16,9 @@ IMPLEMENT_MODULE(FExampleModule, Example)
 
 void FExampleModule::StartupModule()
 {
+	// Style
+	FExampleStyle::Get();
+
 	// Debug Category
 	{
 		IGameplayDebugger::FOnGetCategory category;
@@ -51,6 +56,8 @@ void FExampleModule::StartupModule()
 
 		FLevelEditorModule& levelEditor = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 		levelEditor.GetToolBarExtensibilityManager()->AddExtender(Extender);
+
+
 	}
 }
 
@@ -61,16 +68,20 @@ void FExampleModule::ShutdownModule()
 
 	if(ConsoleCommand.IsValid())
 		ConsoleCommand.Reset();
+
+	FExampleStyle::Shutdown();
 }
 
 void FExampleModule::AddToolBar(FToolBarBuilder& InBuilder)
 {
+	FString name = TEXT("메시");
+
 	InBuilder.AddSeparator();
 	InBuilder.AddToolBarButton
 	(
 		FButtonCommand::Get().LoadMesh,
 		"LoadMesh",
-		FText::FromString("Load Mesh"),
+		FText::FromString(name),
 		FText::FromString("Load Mesh Data")
 	);
 

@@ -23,5 +23,6 @@ public class Example : ModuleRules
         PrivateDependencyModuleNames.Add("MainFrame");
         PrivateDependencyModuleNames.Add("DesktopPlatform");
         PrivateDependencyModuleNames.Add("EditorStyle");
+        // PrivateDependencyModuleNames.Add("Projects");
 	}
 }
