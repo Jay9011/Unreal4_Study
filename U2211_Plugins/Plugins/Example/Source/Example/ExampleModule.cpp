@@ -82,7 +82,8 @@ void FExampleModule::AddToolBar(FToolBarBuilder& InBuilder)
 		FButtonCommand::Get().LoadMesh,
 		"LoadMesh",
 		FText::FromString(name),
-		FText::FromString("Load Mesh Data")
+		FText::FromString("Load Mesh Data"),
+		FExampleStyle::Get()->ToolBar_LoadMesh_Icon
 	);
 
 }

@@ -2,10 +2,10 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Example.cpp.obj": [
-			"ButtonCommand.cpp.obj",
 			"ExampleConsoleCommand.cpp.obj",
 			"ExampleDebuggerCategory.cpp.obj",
 			"StaticMesh_Detail.cpp.obj",
+			"ButtonCommand.cpp.obj",
 			"ExampleModule.cpp.obj",
 			"ExampleStyle.cpp.obj"
 		]

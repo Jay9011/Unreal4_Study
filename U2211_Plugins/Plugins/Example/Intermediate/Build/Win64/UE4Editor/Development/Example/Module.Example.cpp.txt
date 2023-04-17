@@ -1,6 +1,4 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h
-C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ButtonCommand.cpp
-c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ButtonCommand.h
 C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleConsoleCommand.cpp
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleConsoleCommand.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
