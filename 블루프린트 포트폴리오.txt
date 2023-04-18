@@ -1,10 +1,9 @@
-﻿윤종섭_포트폴리오(BP)_30
+﻿윤종섭_포트폴리오(BP)_31
 
-https://youtu.be/_BdRPEUNIZg
+https://youtu.be/Ob4i6FrQIkM
 
 [진행 중]
-3. 적 AI
- 적 AI 보강 (다운 상태 이후 타겟을 잃는 버그 수정, 주변 탐색 추가 등...)
+5. 맵 꾸미기 (건물 추가 및 몬스터 배치 등...)
  
 [예정]
 2. 전투
@@ -38,7 +37,9 @@ https://youtu.be/_BdRPEUNIZg
  2) AI 공격
  3) 다운 상태 처리
  4) 방어, 방어 해제
+ 5) 주변 탐색
 4. Boss
  1) Boss 무기 추가
 5. 추가
  1) IK
+ 2) Head 회전 (Transform Bone)
