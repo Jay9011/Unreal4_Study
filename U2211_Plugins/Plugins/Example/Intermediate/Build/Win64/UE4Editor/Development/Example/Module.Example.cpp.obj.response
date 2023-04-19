@@ -239,6 +239,9 @@
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\MRMesh
 /I Runtime\MRMesh\Public
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Source
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public
 /I Editor\MainFrame\Public
 /I Developer\DesktopPlatform\Public
 /I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source
@@ -271,9 +274,9 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Yu"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Fp"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.pch"
 "C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Module.Example.cpp"
 /FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h"
 /Fo"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Module.Example.cpp.obj"

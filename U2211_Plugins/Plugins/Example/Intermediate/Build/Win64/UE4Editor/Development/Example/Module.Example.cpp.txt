@@ -7,7 +7,22 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Misc/MessageDialog.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerController.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/OnlineReplStructs.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/CoreOnline.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\OnlineReplStructs.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerMuteList.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerMuteList.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Camera/PlayerCameraManager.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerCameraManager.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/InputComponent.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\InputComponent.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/ForceFeedbackEffect.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ForceFeedbackEffect.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/UpdateLevelVisibilityLevelInfo.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\UpdateLevelVisibilityLevelInfo.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\ApplicationCore\Public\GenericPlatform/IInputInterface.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerController.generated.h
 C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleDebuggerCategory.cpp
 c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleDebuggerCategory.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebuggerCategory.h
@@ -21,21 +36,22 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Fonts
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\SlateCore\FontProviderInterface.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Font.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
-C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/StaticMesh_Detail.cpp
-c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\StaticMesh_Detail.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailCustomization.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\DetailLayoutBuilder.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\AssetThumbnail.h
-c:\program files\epic games\ue_4.26\engine\source\editor\unrealed\public\TickableEditorObject.h
-c:\program files\epic games\ue_4.26\engine\source\editor\propertyeditor\public\IDetailPropertyRow.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\DetailCategoryBuilder.h
-c:\program files\epic games\ue_4.26\engine\source\editor\propertyeditor\public\IDetailCustomNodeBuilder.h
-c:\program files\epic games\ue_4.26\engine\source\editor\propertyeditor\public\DetailBuilderTypes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\DetailWidgetRow.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Layout/SSpacer.h
+C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleModule.cpp
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleModule.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ButtonCommand.h
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Source\U2211_Plugins\CStaticMesh.h
 C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\UE4Editor\Inc\U2211_Plugins\CStaticMesh.generated.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Serialization/BufferArchive.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\DesktopPlatform\Public\DesktopPlatformModule.h
-c:\program files\epic games\ue_4.26\engine\source\developer\desktopplatform\public\IDesktopPlatform.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\MainFrame\Public\Interfaces/IMainFrameModule.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\ExampleStyle.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\GameplayDebugger\Public\GameplayDebugger.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ILevelEditor.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ViewportTypeDefinition.h
+c:\projects\unreal\unreal4_study\u2211_plugins\plugins\example\source\example\StaticMesh_Detail.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailCustomization.h
+C:/Projects/Unreal/Unreal4_Study/U2211_Plugins/Plugins/Example/Source/Example/ExampleStyle.cpp
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Styling/SlateStyle.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateBorderBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateBoxBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateColorBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateImageBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Styling/SlateStyleRegistry.h

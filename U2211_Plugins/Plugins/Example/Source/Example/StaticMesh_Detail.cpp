@@ -1,12 +1,14 @@
 #include "StaticMesh_Detail.h"
-#include "DetailLayoutBuilder.h"
-#include "DetailCategoryBuilder.h"
-#include "DetailWidgetRow.h"
+
 #include "CStaticMesh.h"
+#include "DesktopPlatformModule.h"
+#include "DetailCategoryBuilder.h"
+#include "DetailLayoutBuilder.h"
+#include "DetailWidgetRow.h"
+#include "Interfaces/IMainFrameModule.h"
+#include "Misc/FileHelper.h"
 #include "Misc/MessageDialog.h"
 #include "Serialization/BufferArchive.h"
-#include "DesktopPlatformModule.h"
-#include "Interfaces/IMainFrameModule.h"
 
 TSharedRef<IDetailCustomization> FStaticMesh_Detail::MakeInstance()
 {

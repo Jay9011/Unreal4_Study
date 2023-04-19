@@ -17,5 +17,6 @@ public class U2211_Plugins : ModuleRules
         PublicDependencyModuleNames.Add("HeadMountedDisplay");
         PublicDependencyModuleNames.Add("NavigationSystem");
         PublicDependencyModuleNames.Add("AIModule");
+        PublicDependencyModuleNames.Add("ProceduralMeshComponent");
     }
 }

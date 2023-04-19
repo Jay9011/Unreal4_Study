@@ -240,6 +240,7 @@
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\MRMesh
 /I Runtime\MRMesh\Public
 /I Editor\MainFrame\Public
+/I Developer\DesktopPlatform\Public
 /I C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
@@ -270,9 +271,9 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Yu"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Fp"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Intermediate\Build\Win64\U2211_PluginsEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.pch"
 "C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Source\Example\StaticMesh_Detail.cpp"
 /FI"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\Definitions.Example.h"
 /Fo"C:\Projects\Unreal\Unreal4_Study\U2211_Plugins\Plugins\Example\Intermediate\Build\Win64\UE4Editor\Development\Example\StaticMesh_Detail.cpp.obj"
