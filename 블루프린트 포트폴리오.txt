@@ -3,6 +3,10 @@
 https://youtu.be/Ob4i6FrQIkM
 
 [진행 중]
+4. Boss
+ 2) Boss AI
+ 3) Boss 공격 패턴
+ 4) 범위 공격 Decal 미리보기
 5. 맵 꾸미기 (건물 추가 및 몬스터 배치 등...)
  
 [예정]
@@ -11,10 +15,6 @@ https://youtu.be/Ob4i6FrQIkM
  6) 스텔스 킬
  7) 돌 던지기와 AI의 소리 탐색 (돌 던지기시 포물선 경로 미리 보여주기)
  10) Tab 짧게 눌러 무기 변경, Tab 길게 눌러 무기 선택
-4. Boss
- 2) Boss AI
- 3) Boss 공격 패턴 (+추가중)
- 4) 범위 공격 Decal 미리보기
  
 5. 추가
  1) UI, 체력에 따라 화면 주위 붉은색 표현. (PostEffect)
