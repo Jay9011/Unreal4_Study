@@ -1,4 +1,4 @@
-﻿윤종섭_포트폴리오(BP)_31
+﻿윤종섭_포트폴리오(BP)_33
 
 https://youtu.be/Ob4i6FrQIkM
 
@@ -20,8 +20,8 @@ https://youtu.be/Ob4i6FrQIkM
  1) UI, 체력에 따라 화면 주위 붉은색 표현. (PostEffect)
  2) Rail Camera (특정 장소 이동시)
  3) Skill Camera (스킬 사용시 카메라 액션)
- 4) 파크루, 벽타기
- 5) Boss 시네마틱 (등장, 클리어 등...)
+ 4) Boss 시네마틱 (등장, 클리어 등...)
+ 5) 파크루, 벽타기
 
 [완료]
 1. 이동
