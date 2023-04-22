@@ -6,8 +6,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
+#include "Components/CMontagesComponent.h"
 #include "Components/CMovementComponent.h"
-#include "Components/CStateComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 
@@ -17,8 +17,10 @@ ACPlayer::ACPlayer()
 	CHelpers::CreateComponent<USpringArmComponent>(this, &SpringArm, "SpringArm", GetMesh());
 	CHelpers::CreateComponent<UCameraComponent>(this, &Camera, "Camera", SpringArm);
 
+	CHelpers::CreateActorComponent<UCMontagesComponent>(this, &Montages, "Montages");
 	CHelpers::CreateActorComponent<UCMovementComponent>(this, &Movement, "Movement");
 	CHelpers::CreateActorComponent<UCStateComponent>(this, &State, "State");
+	
 
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -90));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
@@ -47,6 +49,9 @@ void ACPlayer::BeginPlay()
 
 	Movement->SetSpeed(ESpeedType::Run);
 	Movement->DisableControlRotation();
+
+	State->OnStateTypeChanged.AddDynamic(this, &ACPlayer::OnStateTypeChanged);
+
 }
 
 void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -60,4 +65,40 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAction("Sprint", EInputEvent::IE_Pressed, Movement, &UCMovementComponent::OnSprint);
 	PlayerInputComponent->BindAction("Sprint", EInputEvent::IE_Released, Movement, &UCMovementComponent::OnRun);
+
+	PlayerInputComponent->BindAction("Avoid", EInputEvent::IE_Pressed, this, &ACPlayer::OnAvoid);
+}
+
+void ACPlayer::OnStateTypeChanged(EStateType InPrevType, EStateType InNewType)
+{
+	switch (InNewType)
+	{
+		case EStateType::Idle: break;
+		case EStateType::BackStep: Backstep(); break;
+		case EStateType::Equip: break;
+		case EStateType::Hitted: break;
+		case EStateType::Dead: break;
+		case EStateType::Action: break;
+		case EStateType::Max: break;
+		default: ;
+	}
+}
+
+void ACPlayer::OnAvoid()
+{
+	CheckFalse(State->IsIdleMode())
+	CheckFalse(Movement->CanMove())
+
+	CheckTrue(InputComponent->GetAxisValue("MoveForward") >= 0.0f);
+
+	State->SetBackStepMode();
+}
+
+void ACPlayer::Backstep()
+{
+	Movement->EnableControlRotation();
+
+	Montages->PlayBackStepMode();
+
+
 }

@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/CStateComponent.h"
 #include "CPlayer.generated.h"
 
 UCLASS()
@@ -18,6 +19,9 @@ private:
 
 private:
 	UPROPERTY(VisibleAnywhere)
+	class UCMontagesComponent* Montages;
+
+	UPROPERTY(VisibleAnywhere)
 	class UCMovementComponent* Movement;
 
 	UPROPERTY(VisibleAnywhere)
@@ -31,4 +35,15 @@ protected:
 
 public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	UFUNCTION()
+	void OnStateTypeChanged(EStateType InPrevType, EStateType InNewType);
+
+private:
+	void OnAvoid();
+
+private:
+	void Backstep();
+
 };
