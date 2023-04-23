@@ -4,3 +4,5 @@ ComboAttack2,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Pattern/Boss_
 ComboAttack4,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Pattern/Boss_Pirate_ComboAttack4.Boss_Pirate_ComboAttack4',1,TRUE,FALSE,"(X=0,Y=0)"
 ComboAttack5,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Pattern/Boss_Pirate_ComboAttack5.Boss_Pirate_ComboAttack5',1,TRUE,FALSE,"(X=0,Y=0)"
 ComboAttack6,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Pattern/Boss_Pirate_ComboAttack6.Boss_Pirate_ComboAttack6',1,TRUE,FALSE,"(X=0,Y=0)"
+CallCannon,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Attack/Skill/Boss_Pirate_Skill_06.Boss_Pirate_Skill_06',1,FALSE,FALSE,"(X=0,Y=0)"
+LoadShoot,AnimMontage'/Game/Resources/Anim_Montages/Boss_Pirate/Attack/Skill/Boss_Pirate_Skill_05.Boss_Pirate_Skill_05',1,FALSE,FALSE,"(X=0,Y=0)"
