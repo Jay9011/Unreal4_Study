@@ -102,3 +102,9 @@ void ACPlayer::Backstep()
 
 
 }
+
+void ACPlayer::End_BackStep()
+{
+	Movement->DisableControlRotation();
+	State->SetIdleMode();
+}

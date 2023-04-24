@@ -2,11 +2,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "ICharacter.h"
 #include "Components/CStateComponent.h"
 #include "CPlayer.generated.h"
 
 UCLASS()
 class U2211_STARTCPPGAME_API ACPlayer : public ACharacter
+	// Interfaces
+	, public IICharacter
 {
 	GENERATED_BODY()
 
@@ -45,5 +48,8 @@ private:
 
 private:
 	void Backstep();
+
+public:
+	void End_BackStep() override;
 
 };
