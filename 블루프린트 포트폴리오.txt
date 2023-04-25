@@ -1,13 +1,14 @@
-﻿윤종섭_포트폴리오(BP)_33
+﻿윤종섭_포트폴리오(BP)_34
 
-https://youtu.be/Ob4i6FrQIkM
+https://youtu.be/5FPEjQSqUvI
 
 [진행 중]
-4. Boss
- 2) Boss AI
- 3) Boss 공격 패턴
- 4) 범위 공격 Decal 미리보기
+5. 추가
+ 4) Boss 시네마틱
 5. 맵 꾸미기 (건물 추가 및 몬스터 배치 등...)
+4. Boss
++3) Boss 공격 패턴 (추가)
+
  
 [예정]
 2. 전투
@@ -40,6 +41,9 @@ https://youtu.be/Ob4i6FrQIkM
  5) 주변 탐색
 4. Boss
  1) Boss 무기 추가
+ 2) Boss AI
+ 3) Boss 공격 패턴
+ 4) 범위 공격 Decal 미리보기
 5. 추가
  1) IK
  2) Head 회전 (Transform Bone)
