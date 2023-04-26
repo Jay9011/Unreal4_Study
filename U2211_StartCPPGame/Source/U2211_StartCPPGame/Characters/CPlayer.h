@@ -22,6 +22,9 @@ private:
 
 private:
 	UPROPERTY(VisibleAnywhere)
+	class UCWeaponComponent* Weapon;
+
+	UPROPERTY(VisibleAnywhere)
 	class UCMontagesComponent* Montages;
 
 	UPROPERTY(VisibleAnywhere)
