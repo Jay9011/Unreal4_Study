@@ -46,6 +46,7 @@ private:
 public:
 	class ACAttachment* GetAttachment();
 	class UCEquipment* GetEquipment();
+	class UCDoAction* GetDoAction();
 
 public:
 	void SetUnarmedMode();
@@ -55,6 +56,9 @@ public:
 	void SetWarpMode();
 	void SetAroundMode();
 	void SetBowMode();
+
+public:
+	void DoAction();
 
 private:
 	void SetMode(EWeaponType InType);
