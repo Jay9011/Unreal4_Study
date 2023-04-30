@@ -26,11 +26,15 @@ void UCDoAction_Combo::DoAction()
 void UCDoAction_Combo::Begin_DoAction()
 {
 	Super::Begin_DoAction();
+	CheckFalse(bExist)
 
+	bExist = false;
+	DoActionDatas[++Index].DoAction(OwnerCharacter);
 }
 
 void UCDoAction_Combo::End_DoAction()
 {
 	Super::End_DoAction();
 
+	Index = 0;
 }

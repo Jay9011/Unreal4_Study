@@ -17,4 +17,7 @@ class U2211_STARTCPPGAME_API IICharacter
 public:
 	virtual void End_BackStep() {};
 
+public:
+	void Create_DynamicMaterial(class ACharacter* InCharacter);
+	void Change_Color(class ACharacter* InCharacter, FLinearColor InColor);
 };
