@@ -38,3 +38,12 @@ void UCDoAction_Combo::End_DoAction()
 
 	Index = 0;
 }
+
+void UCDoAction_Combo::OnAttachmentBeginOverlap(ACharacter* InAttacker, AActor* InAttackCuaser, ACharacter* InOther)
+{
+	Super::OnAttachmentBeginOverlap(InAttacker, InAttackCuaser, InOther);
+	CheckNull(InOther)
+
+	CLog::Log(InOther->GetName());
+
+}
