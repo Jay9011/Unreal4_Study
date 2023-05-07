@@ -1,14 +1,16 @@
-﻿윤종섭_포트폴리오(BP)_36
+﻿윤종섭_포트폴리오(BP)_39
 
-https://youtu.be/5FPEjQSqUvI
+https://youtu.be/QDPmP4C8b8g
 
 [진행 중]
-5. 추가
- 4) Boss 시네마틱
-5. 맵 꾸미기 (현재 Boss 지형 꾸미기 중...)
+2. 전투
+ 5) 피격시 피격 이펙트 추가
+ 6) Camera Shake 및 사운드 추가
 
 4. Boss
-+3) Boss 공격 패턴 (추가)
+ +3) Boss 공격 패턴 (추가)
+
++ 맵 꾸미기 (일반 Enemy 지역)
 
  
 [예정]
@@ -22,7 +24,7 @@ https://youtu.be/5FPEjQSqUvI
  1) UI, 체력에 따라 화면 주위 붉은색 표현. (PostEffect)
  2) Rail Camera (특정 장소 이동시)
  3) Skill Camera (스킬 사용시 카메라 액션)
- 4) Boss 시네마틱 (등장, 클리어 등...)
+ 4) Boss 시네마틱 (클리어)
  5) 파크루, 벽타기
 
 [완료]
@@ -48,3 +50,5 @@ https://youtu.be/5FPEjQSqUvI
 5. 추가
  1) IK
  2) Head 회전 (Transform Bone)
+ 4) Boss 시네마틱
+﻿ 5) UI
