@@ -50,8 +50,8 @@ void ACAttachment::OnCollisions()
 
 void ACAttachment::OffCollisions()
 {
-	if (OnAttachmentBeginCollision.IsBound())
-		OnAttachmentBeginCollision.Broadcast();
+	if (OnAttachmentEndCollision.IsBound())
+		OnAttachmentEndCollision.Broadcast();
 
 	for(UShapeComponent* Shape : Collisions)
 		Shape->SetCollisionEnabled(ECollisionEnabled::NoCollision);

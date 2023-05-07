@@ -39,4 +39,20 @@ protected:
 private:
 	UFUNCTION()
 	void OnStateTypeChanged(EStateType InPrevType, EStateType InNewType);
+
+public:
+	float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
+private:
+	void Hitted();
+
+private:
+	struct FDamageData
+	{
+		float Power;
+		class ACharacter* Character;
+		class AActor* Causer;
+
+		struct FActionDamageEvent* Event;
+	} Damage;
 };

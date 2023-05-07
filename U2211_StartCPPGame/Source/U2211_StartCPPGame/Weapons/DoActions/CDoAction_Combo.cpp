@@ -39,11 +39,10 @@ void UCDoAction_Combo::End_DoAction()
 	Index = 0;
 }
 
-void UCDoAction_Combo::OnAttachmentBeginOverlap(ACharacter* InAttacker, AActor* InAttackCuaser, ACharacter* InOther)
+void UCDoAction_Combo::OnAttachmentBeginOverlap(ACharacter* InAttacker, AActor* InAttackCauser, ACharacter* InOther)
 {
-	Super::OnAttachmentBeginOverlap(InAttacker, InAttackCuaser, InOther);
+	Super::OnAttachmentBeginOverlap(InAttacker, InAttackCauser, InOther);
 	CheckNull(InOther)
 
-	CLog::Log(InOther->GetName());
-
+	HitDatas[Index].SendDamage(InAttacker, InAttackCauser, InOther);
 }

@@ -37,8 +37,51 @@ void ACEnemy::BeginPlay()
 
 	Create_DynamicMaterial(this);
 	Change_Color(this, OriginColor);
+
+	State->OnStateTypeChanged.AddDynamic(this, &ACEnemy::OnStateTypeChanged);
+
 }
 
 void ACEnemy::OnStateTypeChanged(EStateType InPrevType, EStateType InNewType)
 {
+	switch (InNewType)
+	{
+	case EStateType::Hitted: Hitted(); break;
+	}
+}
+
+float ACEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float damage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+
+	Damage.Power = damage;
+	Damage.Character = Cast<ACharacter>(EventInstigator->GetPawn());
+	Damage.Causer = DamageCauser;
+	Damage.Event = (FActionDamageEvent*)&DamageEvent;
+
+	State->SetHittedMode();
+
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+}
+
+void ACEnemy::Hitted()
+{
+	//TODO : Damage 贸府
+	Damage.Power = 0;
+
+	//TODO : 荤噶 贸府
+
+	Change_Color(this, FLinearColor::Red);
+
+	if (!!Damage.Event && !!Damage.Event->HitData)
+	{
+		FHitData* data = Damage.Event->HitData;
+
+		data->PlayMontage(this);
+	}
+
+	Damage.Character = nullptr;
+	Damage.Causer = nullptr;
+	Damage.Event = nullptr;
+
 }
