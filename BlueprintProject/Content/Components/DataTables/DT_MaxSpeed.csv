@@ -2,3 +2,5 @@
 1,Walk,240
 2,Run,600
 3,Sprint,800
+4,CrouchWalk,140
+5,CrouchRun,240
