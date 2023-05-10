@@ -16,6 +16,8 @@ class U2211_STARTCPPGAME_API IICharacter
 
 public:
 	virtual void End_BackStep() {};
+	virtual void End_Hitted() {};
+	virtual void End_Dead() {};
 
 public:
 	void Create_DynamicMaterial(class ACharacter* InCharacter);

@@ -39,6 +39,19 @@ void ACAttachment::AttachTo(FName InSocketName)
 	AttachToComponent(OwnerCharacter->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), InSocketName);
 }
 
+void ACAttachment::AttachToCollision(FName InSocketName)
+{
+	for (UShapeComponent* collision : Collisions)
+	{
+		if (collision->GetName() == InSocketName.ToString())
+		{
+			collision->AttachToComponent(OwnerCharacter->GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), InSocketName);
+
+			return;
+		}
+	}
+}
+
 void ACAttachment::OnCollisions()
 {
 	if (OnAttachmentBeginCollision.IsBound())

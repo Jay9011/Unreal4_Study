@@ -20,10 +20,14 @@ public:
 
 public:
 	void OnAttachmentBeginOverlap(class ACharacter* InAttacker, AActor* InAttackCauser, class ACharacter* InOther) override;
+	void OnAttachmentEndCollision() override;
 
 private:
 	int32 Index;
 
 	bool bEnable;
 	bool bExist;
+
+private:
+	TArray<class ACharacter*> Hitted;
 };

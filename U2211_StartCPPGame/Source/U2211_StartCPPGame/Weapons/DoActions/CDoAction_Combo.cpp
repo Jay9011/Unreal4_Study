@@ -44,5 +44,46 @@ void UCDoAction_Combo::OnAttachmentBeginOverlap(ACharacter* InAttacker, AActor* 
 	Super::OnAttachmentBeginOverlap(InAttacker, InAttackCauser, InOther);
 	CheckNull(InOther)
 
+	for (ACharacter* hitted : Hitted)
+		CheckTrue(hitted == InOther)
+
+	Hitted.AddUnique(InOther);
+
+	//HitData 가 없으면 실행하지 않는다. (예외처리)
+	CheckTrue(HitDatas.Num() - 1 < Index);
 	HitDatas[Index].SendDamage(InAttacker, InAttackCauser, InOther);
+}
+
+void UCDoAction_Combo::OnAttachmentEndCollision()
+{
+	Super::OnAttachmentEndCollision();
+
+	float angle = -2.0f;
+	ACharacter* candidate = nullptr;
+
+	for(ACharacter* hitted : Hitted)
+	{
+		FVector direction = hitted->GetActorLocation() - OwnerCharacter->GetActorLocation();
+		direction = direction.GetSafeNormal2D();
+
+		FVector forward = FQuat(OwnerCharacter->GetControlRotation()).GetForwardVector();
+
+		float dot = FVector::DotProduct(direction, forward);
+		if (dot >= angle)
+		{
+			angle = dot;
+			candidate = hitted;
+		}
+	}
+
+	if (!!candidate)
+	{
+		FRotator rotator = UKismetMathLibrary::FindLookAtRotation(OwnerCharacter->GetActorLocation(), candidate->GetActorLocation());
+		FRotator target = FRotator(0, rotator.Yaw, 0);
+
+		AController* controller = OwnerCharacter->GetController<AController>();
+		controller->SetControlRotation(target);
+	}
+
+	Hitted.Empty();
 }

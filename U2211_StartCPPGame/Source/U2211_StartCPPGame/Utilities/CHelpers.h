@@ -1,5 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Particles/ParticleSystem.h"
+#include "NiagaraSystem.h"
+#include "NiagaraFunctionLibrary.h"
 
 // 간단한 Return 전용 매크로 함수들
 #define CheckTrue(x) { if(x == true) return; };
@@ -116,4 +119,50 @@ public:
 	{
 		InActor->AttachToComponent(InParent, FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), InSocketName);
 	}
+
+	/*
+	 * UFXSystemAsset 판단 (Particle 과 Niagara 판단)
+	 */
+	static void PlayEffect(UWorld* InWorld, UFXSystemAsset* InAsset, const FTransform& InTransform,
+						   USkeletalMeshComponent* InMesh = nullptr, FName InSocketName = NAME_None)
+	{
+		UParticleSystem* particle = Cast<UParticleSystem>(InAsset);
+		UNiagaraSystem* niagara = Cast<UNiagaraSystem>(InAsset);
+
+		FVector location = InTransform.GetLocation();
+		FRotator rotation = FRotator(InTransform.GetRotation());
+		FVector scale = InTransform.GetScale3D();
+
+		// 어딘가에 Attach 되어 들어왔는지 확인
+		if (!!InMesh)
+		{
+			if (!!particle)
+			{
+				UGameplayStatics::SpawnEmitterAttached(particle, InMesh, InSocketName, location, rotation, scale);
+				return;
+			}
+
+			if (!!niagara)
+			{
+				UNiagaraFunctionLibrary::SpawnSystemAttached(niagara, InMesh, InSocketName, location, rotation, scale, EAttachLocation::KeepRelativeOffset, true, ENCPoolMethod::None);
+				return;
+			}
+
+			return;
+		}
+
+		// Attach 가 아니고 그냥 들어왔다면
+		if (!!particle)
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(InWorld, particle, InTransform);
+			return;
+		}
+
+		if (!!niagara)
+		{
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(InWorld, niagara, location, rotation, scale);
+			return;
+		}
+	}
+
 };

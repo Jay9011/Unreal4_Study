@@ -22,8 +22,8 @@ void UCAnimNotify_EndState::Notify(USkeletalMeshComponent* MeshComp, UAnimSequen
 		case EStateType::Idle: break;
 		case EStateType::BackStep: character->End_BackStep(); break;
 		case EStateType::Equip: break;
-		case EStateType::Hitted: break;
-		case EStateType::Dead: break;
+		case EStateType::Hitted: character->End_Hitted(); break;
+		case EStateType::Dead: character->End_Dead(); break;
 		case EStateType::Action: break;
 	}
 }

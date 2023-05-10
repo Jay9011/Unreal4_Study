@@ -7,6 +7,7 @@
 #include "Components/CWeaponComponent.h"
 #include "Components/CMovementComponent.h"
 #include "Components/CMontagesComponent.h"
+#include "Components/CStatusComponent.h"
 #include "Weapons/CWeaponStructures.h"
 
 ACEnemy::ACEnemy()
@@ -15,6 +16,7 @@ ACEnemy::ACEnemy()
 	CHelpers::CreateActorComponent<UCMovementComponent>(this, &Movement, "Movement");
 	CHelpers::CreateActorComponent<UCStateComponent>(this, &State, "State");
 	CHelpers::CreateActorComponent<UCMontagesComponent>(this, &Montages, "Montages");
+	CHelpers::CreateActorComponent<UCStatusComponent>(this, &Status, "Status");
 
 
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -90));
@@ -47,6 +49,7 @@ void ACEnemy::OnStateTypeChanged(EStateType InPrevType, EStateType InNewType)
 	switch (InNewType)
 	{
 	case EStateType::Hitted: Hitted(); break;
+	case EStateType::Dead: Dead(); break;
 	}
 }
 
@@ -66,22 +69,73 @@ float ACEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, A
 
 void ACEnemy::Hitted()
 {
-	//TODO : Damage 贸府
+	//Damage 贸府
+	Status->Damage(Damage.Power);
 	Damage.Power = 0;
 
-	//TODO : 荤噶 贸府
+	//Change Color
+	{
+		Change_Color(this, FLinearColor::Red);
 
-	Change_Color(this, FLinearColor::Red);
+		FTimerDelegate timerDelegate;
+		timerDelegate.BindUFunction(this, "RestoreColor");
+		GetWorld()->GetTimerManager().SetTimer(RestoreColor_TimerHandle, timerDelegate, 0.2f, false);
+	}
 
 	if (!!Damage.Event && !!Damage.Event->HitData)
 	{
 		FHitData* data = Damage.Event->HitData;
 
 		data->PlayMontage(this);
+		data->PlayHitStop(GetWorld());
+		data->PlaySoundWave(this);
+		data->PlayEffect(GetWorld(), GetActorLocation(), GetActorRotation());
+
+		if (!Status->IsDead())
+		{
+			FVector start = GetActorLocation();
+			FVector target = Damage.Character->GetActorLocation();
+			FVector direction = target - start;
+			direction.Normalize();
+
+			LaunchCharacter(-direction * data->Launch, false, false);
+			SetActorRotation(UKismetMathLibrary::FindLookAtRotation(start, target));
+		}
 	}
 
 	Damage.Character = nullptr;
 	Damage.Causer = nullptr;
 	Damage.Event = nullptr;
+	
+	//荤噶 贸府
+	if (Status->IsDead())
+	{
+		State->SetDeadMode();
 
+		return;
+	}
+}
+
+void ACEnemy::End_Hitted()
+{
+	State->SetIdleMode();
+}
+
+void ACEnemy::RestoreColor()
+{
+	Change_Color(this, OriginColor);
+
+	GetWorld()->GetTimerManager().ClearTimer(RestoreColor_TimerHandle);
+}
+
+void ACEnemy::Dead()
+{
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	Montages->PlayDeadMode();
+}
+
+void ACEnemy::End_Dead()
+{
+	Destroy();
 }

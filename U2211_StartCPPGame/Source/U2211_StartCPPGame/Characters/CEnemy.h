@@ -30,6 +30,9 @@ private:
 	UPROPERTY(VisibleDefaultsOnly)
 	class UCMontagesComponent* Montages;
 
+	UPROPERTY(VisibleDefaultsOnly)
+	class UCStatusComponent* Status;
+
 public:
 	ACEnemy();
 
@@ -46,6 +49,19 @@ public:
 private:
 	void Hitted();
 
+public:
+	void End_Hitted() override;
+
+private:
+	UFUNCTION()
+	void RestoreColor();
+
+private:
+	void Dead();
+
+public:
+	void End_Dead() override;
+
 private:
 	struct FDamageData
 	{
@@ -55,4 +71,6 @@ private:
 
 		struct FActionDamageEvent* Event;
 	} Damage;
+
+	FTimerHandle RestoreColor_TimerHandle;
 };
