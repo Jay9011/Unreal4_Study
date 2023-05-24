@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.Weapon.cpp.obj": [
+			"FWeaponAssetEditor.cpp.obj",
+			"FWeaponCommand.cpp.obj",
+			"WeaponAssetFactory.cpp.obj",
+			"WeaponContextMenu.cpp.obj",
+			"WeaponModule.cpp.obj",
+			"WeaponStyle.cpp.obj"
+		],
+		"Module.Weapon.gen.cpp.obj": [
+			"Weapon.init.gen.cpp.obj",
+			"WeaponAssetFactory.gen.cpp.obj"
+		]
+	}
+}

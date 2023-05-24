@@ -1,0 +1,47 @@
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Definitions.Weapon.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/FWeaponAssetEditor.cpp
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\FWeaponAssetEditor.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponAsset.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponStructures.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Math/UnitConversion.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Math/UnitConversion.inl
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponStructures.generated.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponAsset.generated.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/FWeaponCommand.cpp
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\FWeaponCommand.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ILevelEditor.h
+c:\program files\epic games\ue_4.26\engine\source\editor\leveleditor\public\ViewportTypeDefinition.h
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\WeaponStyle.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponAssetFactory.cpp
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\WeaponAssetFactory.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponContextMenu.cpp
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\WeaponContextMenu.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\AssetTools\Public\AssetTypeActions_Base.h
+c:\program files\epic games\ue_4.26\engine\source\developer\assettools\public\IAssetTools.h
+c:\program files\epic games\ue_4.26\engine\source\developer\assettools\public\AssetTypeCategories.h
+c:\program files\epic games\ue_4.26\engine\source\developer\assettools\public\IAssetTypeActions.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer/Merge/Public/Merge.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\ThumbnailRendering/ThumbnailManager.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Classes\ThumbnailRendering/ThumbnailRenderer.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\ThumbnailRenderer.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\ThumbnailManager.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\AutomatedAssetImportData.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\AutomatedAssetImportData.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AssetTools\IAssetTools.generated.h
+c:\program files\epic games\ue_4.26\engine\source\developer\assettools\public\AssetToolsModule.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Toolkits/AssetEditorManager.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\UnrealEd\Public\Toolkits/SimpleAssetEditor.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponModule.cpp
+c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\WeaponModule.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponStyle.cpp
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Styling/SlateStyle.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateBorderBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateBoxBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateColorBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Brushes/SlateImageBrush.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\SlateCore\Public\Styling/SlateStyleRegistry.h
