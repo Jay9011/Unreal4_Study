@@ -1,4 +1,6 @@
 #include "FWeaponAssetEditor.h"
+#include "Weapon/SWeaponListView.h"
+
 #include "Weapons/CWeaponAsset.h"
 
 const FName FWeaponAssetEditor::EditorName	  = "WeaponAssetEditor";
@@ -34,6 +36,15 @@ void FWeaponAssetEditor::Shutdown()
 
 void FWeaponAssetEditor::Open(FString InAssetName)
 {
+	ListView = SNew(SWeaponListView);
+
+	FPropertyEditorModule& prop = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
+
+	FDetailsViewArgs args(false, false, true, FDetailsViewArgs::ObjectsUseNameArea);
+	args.ViewIdentifier = "WeaponAssetEditorDetailsView";
+
+	DetailsView = prop.CreateDetailView(args);
+
 	TSharedRef<FTabManager::FLayout> Layout = FTabManager::NewLayout("WeaponAssetEditor_Layout")
 	->AddArea
 	(
@@ -74,6 +85,9 @@ void FWeaponAssetEditor::Open(FString InAssetName)
 	UCWeaponAsset* asset = NewObject<UCWeaponAsset>();
 	FAssetEditorToolkit::InitAssetEditor(EToolkitMode::Standalone, TSharedPtr<IToolkitHost>(), EditorName, Layout, true,
 										 true, asset);
+
+	DetailsView->SetObject(asset);
+
 }
 
 void FWeaponAssetEditor::RegisterTabSpawners(const TSharedRef<FTabManager>& InTabManager)
@@ -82,13 +96,52 @@ void FWeaponAssetEditor::RegisterTabSpawners(const TSharedRef<FTabManager>& InTa
 
 	FOnSpawnTab tab;
 	tab.BindSP(this, &FWeaponAssetEditor::Spawn_ListViewTab);
-
 	TabManager->RegisterTabSpawner(ListViewTabId, tab);
+
+	FOnSpawnTab tab2;
+	tab2.BindSP(this, &FWeaponAssetEditor::Spawn_DetailsViewTab);
+	TabManager->RegisterTabSpawner(DetailTabId, tab2);
 }
 
 TSharedRef<SDockTab> FWeaponAssetEditor::Spawn_ListViewTab(const FSpawnTabArgs& InArgs)
 {
-	return SNew(SDockTab);
+	// 원형 Slate 문법
+	// TSharedPtr<STextBlock> tb =
+	// 	SNew(STextBlock)
+	// 	.Text(FText::FromString("Test"));
+	//
+	// TSharedPtr<SDockTab> tab =
+	// 	SNew(SDockTab)
+	// 	.Content()
+	// 	[
+	// 		tb.ToSharedRef()
+	// 	];
+	//
+	// return tab.ToSharedRef();
+
+	// Slate 문법
+	// return SNew(SDockTab)
+	// 	   [
+	// 		   SNew(SButton)
+	// 		   .OnClicked(this, &FWeaponAssetEditor::OnClicked)
+	// 		   [
+	// 			   SNew(STextBlock)
+	// 			   .Text(FText::FromString("Click"))
+	// 		   ]
+	// 	   ];
+
+	return SNew(SDockTab)
+	[
+		ListView.ToSharedRef()
+	];
+}
+
+TSharedRef<SDockTab> FWeaponAssetEditor::Spawn_DetailsViewTab(const FSpawnTabArgs& InArgs)
+{
+	return SNew(SDockTab)
+	[
+		DetailsView.ToSharedRef()
+	];
 }
 
 FName FWeaponAssetEditor::GetToolkitFName() const
@@ -109,4 +162,11 @@ FString FWeaponAssetEditor::GetWorldCentricTabPrefix() const
 FLinearColor FWeaponAssetEditor::GetWorldCentricTabColorScale() const
 {
 	return FLinearColor(0, 0, 1);
+}
+
+FReply FWeaponAssetEditor::OnClicked()
+{
+	GLog->Log("Test");
+
+	return FReply::Handled();
 }

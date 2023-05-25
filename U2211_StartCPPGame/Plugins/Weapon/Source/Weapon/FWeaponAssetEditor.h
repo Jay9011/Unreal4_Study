@@ -21,6 +21,7 @@ public:
 
 private:
 	TSharedRef<SDockTab> Spawn_ListViewTab(const FSpawnTabArgs& InArgs);
+	TSharedRef<SDockTab> Spawn_DetailsViewTab(const FSpawnTabArgs& InArgs);
 
 public:
 	virtual FName GetToolkitFName() const override;
@@ -29,7 +30,14 @@ public:
 	virtual FLinearColor GetWorldCentricTabColorScale() const override;
 
 private:
+	TSharedPtr<class SWeaponListView> ListView;
+	TSharedPtr<class IDetailsView> DetailsView;
+
+private:
 	static const FName EditorName;
 	static const FName ListViewTabId;
 	static const FName DetailTabId;
+
+private:
+	FReply OnClicked();
 };
