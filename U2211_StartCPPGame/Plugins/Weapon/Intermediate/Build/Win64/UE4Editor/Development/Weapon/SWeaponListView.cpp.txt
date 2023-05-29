@@ -1,2 +1,2 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Definitions.Weapon.h
-c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\source\weapon\SWeaponListView.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponListView.h

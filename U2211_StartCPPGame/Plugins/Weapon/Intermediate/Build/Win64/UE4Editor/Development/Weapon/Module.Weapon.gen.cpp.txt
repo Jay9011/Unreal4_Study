@@ -4,4 +4,4 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UOb
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Intermediate/Build/Win64/UE4Editor/Inc/Weapon/WeaponAssetFactory.gen.cpp
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon/WeaponAssetFactory.h
-c:\projects\unreal\unreal4_study\u2211_startcppgame\plugins\weapon\intermediate\build\win64\ue4editor\inc\weapon\WeaponAssetFactory.generated.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
