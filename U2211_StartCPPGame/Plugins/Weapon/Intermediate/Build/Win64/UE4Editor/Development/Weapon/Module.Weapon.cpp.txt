@@ -1,7 +1,14 @@
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Definitions.Weapon.h
-C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/FWeaponAssetEditor.cpp
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/FWeaponCommand.cpp
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\FWeaponCommand.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ILevelEditor.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ViewportTypeDefinition.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponStyle.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\FWeaponAssetEditor.h
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon/SWeaponListView.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponAssetFactory.cpp
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponAssetFactory.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponAsset.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponStructures.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
@@ -11,15 +18,6 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Math/UnitC
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponStructures.generated.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponAsset.generated.h
-C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/FWeaponCommand.cpp
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\FWeaponCommand.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\LevelEditor.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ILevelEditor.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ViewportTypeDefinition.h
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponStyle.h
-C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponAssetFactory.cpp
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponAssetFactory.h
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
 C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponContextMenu.cpp
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponContextMenu.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\AssetTools\Public\AssetTypeActions_Base.h

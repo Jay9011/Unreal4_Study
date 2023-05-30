@@ -3,6 +3,9 @@
 #include "CoreMinimal.h"
 #include "Toolkits/AssetEditorToolkit.h"
 
+struct FWeaponRowData;
+typedef TSharedPtr<FWeaponRowData> FWeaponRowDataPtr;
+
 class WEAPON_API FWeaponAssetEditor
 	: public FAssetEditorToolkit
 {
@@ -16,11 +19,17 @@ private:
 private:
 	void Open(FString InAssetName);
 
+protected:
+	bool OnRequestClose() override;
+
 public:
 	virtual void RegisterTabSpawners(const TSharedRef<FTabManager>& InTabManager) override;
 
 private:
-	TSharedRef<SDockTab> Spawn_ListViewTab(const FSpawnTabArgs& InArgs);
+	void OnListViewSelectedItem(FWeaponRowDataPtr InPtr);
+	
+private:
+	TSharedRef<SDockTab> Spawn_LeftAreaTab(const FSpawnTabArgs& InArgs);
 	TSharedRef<SDockTab> Spawn_DetailsViewTab(const FSpawnTabArgs& InArgs);
 
 public:
@@ -30,12 +39,12 @@ public:
 	virtual FLinearColor GetWorldCentricTabColorScale() const override;
 
 private:
-	TSharedPtr<class SWeaponListView> ListView;
+	TSharedPtr<class SWeaponLeftArea> LeftArea;
 	TSharedPtr<class IDetailsView> DetailsView;
 
 private:
 	static const FName EditorName;
-	static const FName ListViewTabId;
+	static const FName LeftAreaTabId;
 	static const FName DetailTabId;
 
 private:

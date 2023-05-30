@@ -1,10 +1,10 @@
 #include "FWeaponAssetEditor.h"
-#include "Weapon/SWeaponListView.h"
 
 #include "Weapons/CWeaponAsset.h"
+#include "SWeaponLeftArea.h"
 
 const FName FWeaponAssetEditor::EditorName	  = "WeaponAssetEditor";
-const FName FWeaponAssetEditor::ListViewTabId = "ListView";
+const FName FWeaponAssetEditor::LeftAreaTabId = "ListView";
 const FName FWeaponAssetEditor::DetailTabId	  = "Details";
 
 TSharedPtr<FWeaponAssetEditor> FWeaponAssetEditor::Instance = nullptr;
@@ -36,7 +36,8 @@ void FWeaponAssetEditor::Shutdown()
 
 void FWeaponAssetEditor::Open(FString InAssetName)
 {
-	ListView = SNew(SWeaponListView);
+	LeftArea = SNew(SWeaponLeftArea)
+	.OnWeaponListViewSelectedItem(this, &FWeaponAssetEditor::OnListViewSelectedItem);
 
 	FPropertyEditorModule& prop = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 
@@ -68,7 +69,7 @@ void FWeaponAssetEditor::Open(FString InAssetName)
 			(
 				FTabManager::NewStack()
 				->SetSizeCoefficient(0.175f)
-				->AddTab(ListViewTabId, ETabState::OpenedTab)
+				->AddTab(LeftAreaTabId, ETabState::OpenedTab)
 				->SetHideTabWell(true)
 			)
 			//두 번째 영역
@@ -82,12 +83,32 @@ void FWeaponAssetEditor::Open(FString InAssetName)
 		)
 	);
 
-	UCWeaponAsset* asset = NewObject<UCWeaponAsset>();
+	UCWeaponAsset* asset = nullptr;
+	asset = LeftArea->GetFirstDataPtr()->Asset;
+
+	// UCWeaponAsset* asset = NewObject<UCWeaponAsset>();
 	FAssetEditorToolkit::InitAssetEditor(EToolkitMode::Standalone, TSharedPtr<IToolkitHost>(), EditorName, Layout, true,
 										 true, asset);
 
-	DetailsView->SetObject(asset);
+	// DetailsView->SetObject(asset);
+	LeftArea->SelectDataPtr(asset);
+}
 
+bool FWeaponAssetEditor::OnRequestClose()
+{
+	if (!!DetailsView)
+	{
+		if (!!GEditor && !!GEditor->GetEditorSubsystem<UAssetEditorSubsystem>())
+			GEditor->GetEditorSubsystem<UAssetEditorSubsystem>()->NotifyAssetClosed(GetEditingObject(), this);
+	}
+
+	if (LeftArea.IsValid())
+		LeftArea.Reset();
+
+	if (DetailsView.IsValid())
+		DetailsView.Reset();
+
+	return true;
 }
 
 void FWeaponAssetEditor::RegisterTabSpawners(const TSharedRef<FTabManager>& InTabManager)
@@ -95,15 +116,15 @@ void FWeaponAssetEditor::RegisterTabSpawners(const TSharedRef<FTabManager>& InTa
 	FAssetEditorToolkit::RegisterTabSpawners(InTabManager);
 
 	FOnSpawnTab tab;
-	tab.BindSP(this, &FWeaponAssetEditor::Spawn_ListViewTab);
-	TabManager->RegisterTabSpawner(ListViewTabId, tab);
+	tab.BindSP(this, &FWeaponAssetEditor::Spawn_LeftAreaTab);
+	TabManager->RegisterTabSpawner(LeftAreaTabId, tab);
 
 	FOnSpawnTab tab2;
 	tab2.BindSP(this, &FWeaponAssetEditor::Spawn_DetailsViewTab);
 	TabManager->RegisterTabSpawner(DetailTabId, tab2);
 }
 
-TSharedRef<SDockTab> FWeaponAssetEditor::Spawn_ListViewTab(const FSpawnTabArgs& InArgs)
+TSharedRef<SDockTab> FWeaponAssetEditor::Spawn_LeftAreaTab(const FSpawnTabArgs& InArgs)
 {
 	// 원형 Slate 문법
 	// TSharedPtr<STextBlock> tb =
@@ -132,7 +153,7 @@ TSharedRef<SDockTab> FWeaponAssetEditor::Spawn_ListViewTab(const FSpawnTabArgs& 
 
 	return SNew(SDockTab)
 	[
-		ListView.ToSharedRef()
+		LeftArea.ToSharedRef()
 	];
 }
 
@@ -169,4 +190,16 @@ FReply FWeaponAssetEditor::OnClicked()
 	GLog->Log("Test");
 
 	return FReply::Handled();
+}
+
+void FWeaponAssetEditor::OnListViewSelectedItem(FWeaponRowDataPtr InPtr)
+{
+	if(InPtr == nullptr)
+		return;
+
+	if(!!GetEditingObject())
+		RemoveEditingObject(GetEditingObject());
+
+	AddEditingObject(InPtr->Asset);
+	DetailsView->SetObject(InPtr->Asset);
 }
