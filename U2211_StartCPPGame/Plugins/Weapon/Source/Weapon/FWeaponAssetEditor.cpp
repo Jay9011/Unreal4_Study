@@ -98,7 +98,9 @@ bool FWeaponAssetEditor::OnRequestClose()
 {
 	if (!!DetailsView)
 	{
+		// 만약 Geditor(현재 열려있는 에디터)가 존재하고, AssetEditorSubsystem이 존재한다면
 		if (!!GEditor && !!GEditor->GetEditorSubsystem<UAssetEditorSubsystem>())
+			// AssetEditorSubsystem에게 AssetEditor가 닫힌 것을 알림
 			GEditor->GetEditorSubsystem<UAssetEditorSubsystem>()->NotifyAssetClosed(GetEditingObject(), this);
 	}
 
@@ -197,9 +199,13 @@ void FWeaponAssetEditor::OnListViewSelectedItem(FWeaponRowDataPtr InPtr)
 	if(InPtr == nullptr)
 		return;
 
+	// 현재 편집중인 객체가 존재한다면
 	if(!!GetEditingObject())
+		// 편집중인 객체를 제거해야 충돌이 발생하지 않음
 		RemoveEditingObject(GetEditingObject());
 
+	// InPtr 로 받은 객체를 편집중인 객체로 설정
 	AddEditingObject(InPtr->Asset);
+	// 편집중인 객체를 DetailsView에 설정
 	DetailsView->SetObject(InPtr->Asset);
 }

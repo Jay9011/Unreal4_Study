@@ -20,6 +20,7 @@ private:
 	void Open(FString InAssetName);
 
 protected:
+	// 창이 닫힐 때 호출되는 함수로 Subsystem을 반드시 닫아야 한다.
 	bool OnRequestClose() override;
 
 public:
