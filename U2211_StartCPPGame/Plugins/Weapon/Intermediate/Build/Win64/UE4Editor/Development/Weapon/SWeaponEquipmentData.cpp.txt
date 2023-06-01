@@ -1,0 +1,8 @@
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Definitions.Weapon.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponEquipmentData.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponCheckBoxes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\DetailWidgetRow.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailChildrenBuilder.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\DetailBuilderTypes.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailPropertyRow.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IPropertyUtilities.h

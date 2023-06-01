@@ -2,13 +2,14 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Weapon.cpp.obj": [
+			"FWeaponAssetEditor.cpp.obj",
 			"FWeaponCommand.cpp.obj",
 			"SWeaponLeftArea.cpp.obj",
 			"WeaponAssetFactory.cpp.obj",
 			"WeaponContextMenu.cpp.obj",
 			"WeaponModule.cpp.obj",
 			"WeaponStyle.cpp.obj",
-			"FWeaponAssetEditor.cpp.obj",
+			"SWeaponCheckBoxes.cpp.obj",
 			"SWeaponDetailsView.cpp.obj",
 			"SWeaponEquipmentData.cpp.obj"
 		],

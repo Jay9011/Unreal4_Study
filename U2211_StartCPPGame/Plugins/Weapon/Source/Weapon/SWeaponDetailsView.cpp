@@ -1,5 +1,7 @@
 #include "SWeaponDetailsView.h"
 
+#include "SWeaponCheckBoxes.h"
+#include "SWeaponEquipmentData.h"
 #include "DetailCategoryBuilder.h"
 #include "DetailLayoutBuilder.h"
 #include "IDetailPropertyRow.h"
@@ -24,10 +26,13 @@ void SWeaponDetailsView::CustomizeDetails(IDetailLayoutBuilder& DetailBuilder)
 		category.AddProperty("DoActionClass", type);
 	}
 
-	//EquipmentData
+	//EquipmentData 카테고리 추가
 	{
 		IDetailCategoryBuilder& category = DetailBuilder.EditCategory("EquipmentData", FText::FromString("Equipment Data"));
-		category.AddProperty("EquipmentData", type);
+		IDetailPropertyRow& row = category.AddProperty("EquipmentData", type);
+
+		TSharedPtr<SWeaponCheckBoxes> checkBoxes = SWeaponEquipmentData::CreateCheckBoxes();
+		checkBoxes->AddProperties(row.GetPropertyHandle());
 	}
 }
 	
