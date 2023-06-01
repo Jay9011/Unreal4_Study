@@ -6,9 +6,8 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ILev
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\LevelEditor\Public\ViewportTypeDefinition.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponStyle.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\FWeaponAssetEditor.h
-C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponAssetFactory.cpp
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponAssetFactory.h
-C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/SWeaponLeftArea.cpp
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponLeftArea.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponAsset.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Source\U2211_StartCPPGame\Weapons/CWeaponStructures.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/NoExportTypes.h
@@ -18,6 +17,25 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Math/UnitC
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Internationalization/PolyglotTextData.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponStructures.generated.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponAsset.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Public\EngineUtils.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\ProfilingDebugging/ProfilingHelpers.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/WorldSettings.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/DamageType.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DamageType.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Info.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Info.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound/AudioVolume.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Volume.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Volume.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Sound\ReverbSettings.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ReverbSettings.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioVolume.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/ConstructorHelpers.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\WorldSettings.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Slate\Public\Widgets/Input/SSearchBox.h
+C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponAssetFactory.cpp
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponAssetFactory.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Inc\Weapon\WeaponAssetFactory.generated.h
 C:/Projects/Unreal/Unreal4_Study/U2211_StartCPPGame/Plugins/Weapon/Source/Weapon/WeaponContextMenu.cpp
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\WeaponContextMenu.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Developer\AssetTools\Public\AssetTypeActions_Base.h

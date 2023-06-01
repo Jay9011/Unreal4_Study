@@ -34,8 +34,9 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
 "C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\U2211_StartCPPGameEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
+"C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\FWeaponAssetEditor.cpp.obj"
+"C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\SWeaponDetailsView.cpp.obj"
 "C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Module.Weapon.cpp.obj"
-"C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Weapon.init.gen.cpp.obj"
 "C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Module.Weapon.gen.cpp.obj"
 "C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Intermediate\Build\Win64\UE4Editor\Development\Weapon\Default.rc2.res"
 "C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Development\U2211_StartCPPGame\UE4Editor-U2211_StartCPPGame-0002.lib"
@@ -45,6 +46,7 @@
 "C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\SlateCore\UE4Editor-SlateCore.lib"
 "C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\UE4Editor-UnrealEd.lib"
 "C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\EditorStyle\UE4Editor-EditorStyle.lib"
+"C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
 "C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
 "delayimp.lib"
 "wininet.lib"

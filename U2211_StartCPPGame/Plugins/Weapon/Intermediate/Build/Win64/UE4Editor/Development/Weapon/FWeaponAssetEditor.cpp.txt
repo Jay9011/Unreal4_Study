@@ -10,3 +10,6 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Internatio
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponStructures.generated.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Intermediate\Build\Win64\UE4Editor\Inc\U2211_StartCPPGame\CWeaponAsset.generated.h
 C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponLeftArea.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponDetailsView.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Editor\PropertyEditor\Public\IDetailCustomization.h
+C:\Projects\Unreal\Unreal4_Study\U2211_StartCPPGame\Plugins\Weapon\Source\Weapon\SWeaponEquipmentData.h
